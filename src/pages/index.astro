@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import NavBar from '../components/NavBar.astro';
+import Footer from '../components/Footer.astro';
+import Hero from '../components/home/Hero.astro';
+import HorariosCulto from '../components/home/HorariosCulto.astro';
+import Programacao from '../components/home/Programacao.astro';
+import PilaresIgreja from '../components/home/PilaresIgreja.astro';
+import Departamentos from '../components/home/Departamentos.astro';
+import Reflexao from '../components/home/Reflexao.astro';
+import Contato from '../components/home/Contato.astro';
+---
+
+<BaseLayout>
+  <NavBar />
+  <main>
+    <Hero />
+    <HorariosCulto />
+    <Programacao />
+    <PilaresIgreja />
+    <Departamentos />
+    <Reflexao />
+    <Contato />
+  </main>
+  <Footer />
+</BaseLayout>
+

@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import NavBar from '../components/NavBar.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout
+  title="História — IASD Niterói"
+  description="Conheça a história da Igreja Adventista do Sétimo Dia do Bairro Niterói — sua origem, crescimento e legado na comunidade."
+>
+  <NavBar />
+  <main class="min-h-[80vh] flex items-center justify-center py-24 px-4">
+    <div class="text-center max-w-md">
+      <span
+        class="inline-block bg-secondary-container text-secondary text-xs font-bold px-4 py-1.5 rounded-full mb-6 uppercase tracking-widest"
+        >Em breve</span
+      >
+      <h1 class="text-4xl font-bold text-gray-900 mb-4">Nossa História</h1>
+      <p class="text-gray-500 text-lg leading-relaxed">
+        Estamos preparando o conteúdo desta página. Em breve você poderá conhecer a trajetória da
+        nossa congregação no Bairro Niterói.
+      </p>
+      <a href="/" class="mt-8 inline-flex items-center gap-2 text-secondary font-semibold hover:underline">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M19 12H5M12 5l-7 7 7 7"></path>
+        </svg>
+        Voltar ao início
+      </a>
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>

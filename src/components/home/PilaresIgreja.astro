@@ -1,0 +1,46 @@
+---
+const essencia = [
+  {
+    icon: "menu_book",
+    titulo: "Palavra",
+    descricao: "Temos as Escrituras Sagradas como a primeira crença fundamental.",
+  },
+  {
+    icon: "home",
+    titulo: "Família",
+    descricao: "Acreditamos que a família é uma instituição divina, e aqui trabalhamos para fortalecer estes laços.",
+  },
+  {
+    icon: "favorite",
+    titulo: "Saúde",
+    descricao: "Promovemos o cuidado com a saúde e um estilo de vida saudável baseado em princípios bíblicos.",
+  },
+  {
+    icon: "diversity_3",
+    titulo: "Comunidade",
+    descricao: "Atendemos a comunidade através de projetos sociais e transformando nosso templo em um ponto de apoio.",
+  },
+];
+---
+
+<section class="py-24 px-8 max-w-7xl mx-auto" aria-labelledby="essencia-titulo">
+  <div class="text-center mb-16">
+    <h2 id="essencia-titulo" class="noto-serif text-4xl md:text-5xl text-primary font-bold">
+      Nossa Essência
+    </h2>
+  </div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    {
+      essencia.map((item) => (
+        <div class="bg-surface-container-lowest p-8 rounded-xl shadow-sm border border-surface-container hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+          <span class="material-symbols-outlined text-secondary text-3xl mb-6 block">
+            {item.icon}
+          </span>
+          <h3 class="noto-serif text-xl font-bold text-primary mb-3">{item.titulo}</h3>
+          <p class="manrope text-on-surface-variant text-sm leading-relaxed">{item.descricao}</p>
+        </div>
+      ))
+    }
+  </div>
+</section>

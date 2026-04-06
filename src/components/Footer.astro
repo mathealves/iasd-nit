@@ -1,0 +1,53 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="w-full pt-20 pb-10 bg-surface-container-low manrope text-sm tracking-wide border-t border-outline-variant">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-12 px-8 max-w-7xl mx-auto">
+    <!-- Brand -->
+    <div>
+      <div class="text-lg font-bold text-on-primary-fixed mb-6 uppercase tracking-wider">
+        IASD Niterói
+      </div>
+      <p class="text-on-surface-variant leading-relaxed max-w-xs">
+        Igreja Adventista do Sétimo Dia — Bairro Niterói, Canoas/RS.<br />
+        Proclamando o evangelho eterno à nossa vizinhança.
+      </p>
+    </div>
+
+    <!-- Quick links -->
+    <div class="flex flex-col gap-4">
+      <h4 class="font-bold text-primary-container uppercase text-xs tracking-[0.2em]">Atalhos</h4>
+      <a href="/" class="text-on-surface-variant hover:text-secondary transition-colors">Início</a>
+      <a href="/historia" class="text-on-surface-variant hover:text-secondary transition-colors">
+        História
+      </a>
+      <a href="/quero-conhecer" class="text-on-surface-variant hover:text-secondary transition-colors">
+        Quero Conhecer
+      </a>
+    </div>
+
+    <!-- Ministries -->
+    <div class="flex flex-col gap-4">
+      <h4 class="font-bold text-primary-container uppercase text-xs tracking-[0.2em]">
+        Ministérios
+      </h4>
+      <a href="#" class="text-on-surface-variant hover:text-secondary transition-colors">
+        Escola Sabatina
+      </a>
+      <a href="#" class="text-on-surface-variant hover:text-secondary transition-colors">
+        Desbravadores
+      </a>
+      <a href="#" class="text-on-surface-variant hover:text-secondary transition-colors">Jovens</a>
+    </div>
+  </div>
+
+  <div
+    class="max-w-7xl mx-auto px-8 mt-16 pt-8 border-t border-outline-variant flex flex-col md:flex-row justify-between items-center gap-4"
+  >
+    <span class="text-on-surface-variant text-xs">
+      © {year} Igreja Adventista do Sétimo Dia — Bairro Niterói, Canoas/RS. Todos os direitos
+      reservados.
+    </span>
+  </div>
+</footer>

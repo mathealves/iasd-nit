@@ -1,0 +1,91 @@
+---
+const currentPath = Astro.url.pathname;
+---
+
+<nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-[20px] shadow-[0_4px_30px_rgba(0,0,0,0.03)] noto-serif antialiased tracking-tight">
+  <div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+    <!-- Logo -->
+    <a href="/" class="flex items-center gap-3 text-xl font-bold text-primary-container">
+      <img
+        src="https://lh3.googleusercontent.com/aida/ADBb0ujQmpUZmvt1qpfYbwGXLbWMaFkeJXD0ddfSIjOvSiTrVXLKmJPCpz5XAXIuzjKGaseIWe4ZOzNSJWa3HkUpVicWdKOCvxGEJNLW51UTkI0rtKah71HpVPDqaIe5BwiMaINmtlrDs_IUpWvJf22Xybp0O25JUgxjqj3qxbgKNm-CtrkHTXtz4YspN6KNAYbtGTzFnRI-hJ39NcCB2aPUtAgrTieg_ZVgjLagECfR4UbB7nJKbGADB-3qC-_UB-Oiah9qiG-hmq1fmFY"
+        alt="IASD Logo"
+        class="h-10 w-auto"
+      />
+      <span>IASD Niterói</span>
+    </a>
+
+    <!-- Desktop nav -->
+    <div class="hidden md:flex items-center gap-8">
+      <a
+        href="/"
+        class={`font-semibold transition-colors pb-1 ${currentPath === "/" ? "text-secondary border-b-2 border-secondary" : "text-on-surface-variant hover:text-primary"}`}
+      >
+        Início
+      </a>
+      <a
+        href="/historia"
+        class={`transition-colors ${currentPath === "/historia" ? "text-secondary border-b-2 border-secondary pb-1 font-semibold" : "text-on-surface-variant hover:text-primary"}`}
+      >
+        História
+      </a>
+    </div>
+
+    <!-- CTA -->
+    <div class="flex items-center gap-4">
+      <a
+        href="/quero-conhecer"
+        class="bg-sacred-gradient text-on-primary px-6 py-2.5 rounded-lg font-bold active:scale-90 transition-transform shadow-md text-sm"
+      >
+        Quero Conhecer
+      </a>
+
+      <!-- Mobile hamburger -->
+      <button
+        id="mobile-menu-btn"
+        class="md:hidden p-1 text-on-surface-variant"
+        aria-label="Abrir menu"
+        aria-expanded="false"
+      >
+        <span id="icon-menu" class="material-symbols-outlined">menu</span>
+        <span id="icon-close" class="material-symbols-outlined hidden">close</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden md:hidden border-t border-outline-variant bg-white/95 backdrop-blur-sm px-8 py-4 space-y-3">
+    <a
+      href="/"
+      class={`block py-2 font-semibold ${currentPath === "/" ? "text-secondary" : "text-on-surface-variant"}`}
+    >
+      Início
+    </a>
+    <a
+      href="/historia"
+      class={`block py-2 ${currentPath === "/historia" ? "text-secondary font-semibold" : "text-on-surface-variant"}`}
+    >
+      História
+    </a>
+    <a
+      href="/quero-conhecer"
+      class="block bg-sacred-gradient text-on-primary text-center px-6 py-2.5 rounded-lg font-bold text-sm mt-2"
+    >
+      Quero Conhecer
+    </a>
+  </div>
+</nav>
+
+<script>
+  const btn = document.getElementById("mobile-menu-btn");
+  const menu = document.getElementById("mobile-menu");
+  const iconMenu = document.getElementById("icon-menu");
+  const iconClose = document.getElementById("icon-close");
+
+  btn?.addEventListener("click", () => {
+    const isOpen = !menu?.classList.contains("hidden");
+    menu?.classList.toggle("hidden");
+    iconMenu?.classList.toggle("hidden");
+    iconClose?.classList.toggle("hidden");
+    btn.setAttribute("aria-expanded", String(!isOpen));
+  });
+</script>

@@ -1,0 +1,63 @@
+---
+const departamentos = [
+  {
+    titulo: 'Escola Sabatina',
+    descricao: 'Sábados às 09:00. Estudo profundo da Bíblia em classes divididas por faixas etárias.',
+    ctaLabel: 'Saiba Mais',
+    imgSrc: 'https://lh3.googleusercontent.com/aida/ADBb0uiriGLgPNv5-3uvD718y4Wo51JMJnhdxbfz8_Jjsx3MedPth7yr_ZSHixbI9jKddx6MasuogjF1cSzJ1e5teWItevf6Qf1OM4kwRq8SJwxV_ABsE0G60RAnvxUn_pwnYreAcGhAc6Ag4ST7omhzofl_Wh_TK2PixCGRLmCzuAdmOsEY5X-kvFxeB2Tu4fmteZHUyrImmDYjQoPilOAK0-LGX8tTSaOkIT7OqVK1mNgEiL3jbJLZeI_Q6RAupyjVRzOJYe1CFg0bOw',
+    imgAlt: 'Escola Sabatina',
+  },
+  {
+    titulo: 'Jovens Niterói',
+    descricao: 'Culto Jovem aos sábados às 17:00. Integração e louvor contemporâneo.',
+    ctaLabel: 'Participar',
+    imgSrc: 'https://lh3.googleusercontent.com/aida/ADBb0ugLNad63_HEO_3TLQ69svI4r1aHBSqLD-12ZEys-0gwV_S_tKJV8L0d611GJJ4y94Ne3nG3urx5ZAglb82g9Bau0lmgF4fNW8fqUSnE5q5p_0Xf2-ca1GxAgM3lcnxoX54YMmxibGl9_7NvLdZeRmgctDRua9aMCJuB6L3dU3C973LjJVCc9N2YzhloXkrI9zI8teDBjKS7FURPVE0L9YAg09Z3f77o8xbLksj5f5bgwA294HGIbc9uiSDxC7XoXcSZUnGE1qtF2_c',
+    imgAlt: 'Jovens Niterói',
+  },
+  {
+    titulo: 'Clube de Desbravadores',
+    descricao: 'Reuniões aos domingos às 09:00. Atividades ao ar livre e civismo.',
+    ctaLabel: 'Conhecer Clube',
+    imgSrc: 'https://lh3.googleusercontent.com/aida/ADBb0ui5oq5p5VDlkrSUKuXPCCDDrX33-s8xEUs7QcSP-OX8C_rWf2kdwwY1H3FKYcJKDUYW1Nug9FRlg6yzmyDnqOaRnsCkBwCJhgC2EFyqHvEo0zidwfHLcuzmwga3qflptvHw968tvUCpE413tVweBBmBHgRp6lpTfn-MZdvjbb1kfdRX_lE79bHxYE2zEQkI6B8bxEx9Zj_wKi0O_JVjEueWcUWu3Zab2wg2mS1YNrAQxhMZOpjkUzDKS-ObpENYKSRr_zda8FDkfno',
+    imgAlt: 'Clube de Desbravadores',
+  },
+];
+---
+
+<section class="bg-tertiary-container text-on-tertiary-container py-24" aria-labelledby="departamentos-titulo">
+  <div class="max-w-7xl mx-auto px-8">
+    <div class="mb-16">
+      <h2 id="departamentos-titulo" class="noto-serif text-4xl text-on-tertiary mb-4 font-bold">
+        Departamentos
+      </h2>
+      <p class="manrope text-tertiary-fixed-dim">Conheça algumas de nossas atividades</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+      {
+        departamentos.map((dep) => (
+          <div class="group">
+            <div class="mb-6 overflow-hidden rounded-xl">
+              <img
+                src={dep.imgSrc}
+                alt={dep.imgAlt}
+                class="w-full h-48 object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+            </div>
+            <h4 class="noto-serif text-2xl text-on-tertiary mb-2 font-bold">{dep.titulo}</h4>
+            <p class="manrope text-sm mb-4 leading-relaxed text-on-tertiary-container/80">
+              {dep.descricao}
+            </p>
+            <a
+              href="#"
+              class="inline-flex items-center text-secondary-fixed text-xs font-bold tracking-widest uppercase hover:text-on-tertiary transition-colors"
+            >
+              {dep.ctaLabel}
+              <span class="material-symbols-outlined ml-2 text-sm">arrow_forward</span>
+            </a>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
