@@ -1,46 +1,81 @@
 ---
-const essencia = [
-  {
-    icon: "menu_book",
-    titulo: "Palavra",
-    descricao: "Temos as Escrituras Sagradas como a primeira crença fundamental.",
-  },
-  {
-    icon: "home",
-    titulo: "Família",
-    descricao: "Acreditamos que a família é uma instituição divina, e aqui trabalhamos para fortalecer estes laços.",
-  },
-  {
-    icon: "favorite",
-    titulo: "Saúde",
-    descricao: "Promovemos o cuidado com a saúde e um estilo de vida saudável baseado em princípios bíblicos.",
-  },
-  {
-    icon: "diversity_3",
-    titulo: "Comunidade",
-    descricao: "Atendemos a comunidade através de projetos sociais e transformando nosso templo em um ponto de apoio.",
-  },
-];
+import { Image } from 'astro:assets';
+import heroCulto from '../../assets/hero-culto.png';
 ---
 
-<section class="py-24 px-8 max-w-7xl mx-auto" aria-labelledby="essencia-titulo">
-  <div class="text-center mb-16">
-    <h2 id="essencia-titulo" class="noto-serif text-4xl md:text-5xl text-primary font-bold">
-      Nossa Essência
-    </h2>
-  </div>
+<section class="section history-teaser" style="background: var(--bg-soft);">
+  <div class="container grid-2" style="align-items: center;">
+    <div class="reveal history-teaser__media">
+      <div class="framed" style="aspect-ratio: 4/5;">
+        <Image src={heroCulto} alt="Comunidade IASD Niterói reunida" />
+      </div>
+    </div>
 
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-    {
-      essencia.map((item) => (
-        <div class="bg-surface-container-lowest p-8 rounded-xl shadow-sm border border-surface-container hover:shadow-md hover:-translate-y-1 transition-all duration-300">
-          <span class="material-symbols-outlined text-secondary text-3xl mb-6 block">
-            {item.icon}
-          </span>
-          <h3 class="noto-serif text-xl font-bold text-primary mb-3">{item.titulo}</h3>
-          <p class="manrope text-on-surface-variant text-sm leading-relaxed">{item.descricao}</p>
-        </div>
-      ))
-    }
+    <div class="history-teaser__text">
+      <div class="reveal"><span class="kicker">Nossa história</span></div>
+      <div class="reveal" style="transition-delay: 120ms">
+        <h2 class="section__title">
+          Mais de <em>seis décadas</em><br />no bairro Niterói.
+        </h2>
+      </div>
+      <div class="reveal" style="transition-delay: 240ms">
+        <p class="history-teaser__lede">
+          A IASD Niterói nasceu em 1960, de um pequeno grupo de famílias que
+          se reunia para estudar a Bíblia. Hoje somos uma congregação de
+          centenas de pessoas — sem nunca esquecer da hospitalidade que nos
+          deu origem.
+        </p>
+      </div>
+      <div class="reveal" style="transition-delay: 360ms">
+        <ul class="history-teaser__stats">
+          <li><span class="serif">1960</span><span>fundação</span></li>
+          <li><span class="serif">+60</span><span>anos</span></li>
+          <li><span class="serif">~300</span><span>membros</span></li>
+        </ul>
+      </div>
+      <div class="reveal" style="transition-delay: 480ms">
+        <a href="/historia" class="btn btn--ghost">
+          Conheça a linha do tempo <span class="arr">→</span>
+        </a>
+      </div>
+    </div>
   </div>
 </section>
+
+<style>
+  .section__title {
+    font-size: clamp(32px, 4vw, 52px);
+    margin-top: 14px;
+    font-weight: 400;
+    letter-spacing: -0.015em;
+  }
+  .section__title em { font-style: italic; color: var(--accent); }
+
+  .history-teaser__lede {
+    margin-top: 24px;
+    font-size: 17px;
+    color: var(--ink-soft);
+    line-height: 1.65;
+    max-width: 46ch;
+  }
+  .history-teaser__stats {
+    list-style: none;
+    padding: 0;
+    margin: 36px 0;
+    display: flex;
+    gap: 48px;
+  }
+  .history-teaser__stats li { display: flex; flex-direction: column; gap: 4px; }
+  .history-teaser__stats span:first-child {
+    font-family: var(--serif);
+    font-size: 36px;
+    color: var(--accent);
+    letter-spacing: -0.02em;
+  }
+  .history-teaser__stats span:last-child {
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+</style>

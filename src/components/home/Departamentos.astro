@@ -1,63 +1,131 @@
 ---
-const departamentos = [
+import { Image } from 'astro:assets';
+import jovensNit from '../../assets/jovens-nit.png';
+
+const ministries = [
   {
-    titulo: 'Escola Sabatina',
-    descricao: 'Sábados às 09:00. Estudo profundo da Bíblia em classes divididas por faixas etárias.',
-    ctaLabel: 'Saiba Mais',
-    imgSrc: 'https://lh3.googleusercontent.com/aida/ADBb0uiriGLgPNv5-3uvD718y4Wo51JMJnhdxbfz8_Jjsx3MedPth7yr_ZSHixbI9jKddx6MasuogjF1cSzJ1e5teWItevf6Qf1OM4kwRq8SJwxV_ABsE0G60RAnvxUn_pwnYreAcGhAc6Ag4ST7omhzofl_Wh_TK2PixCGRLmCzuAdmOsEY5X-kvFxeB2Tu4fmteZHUyrImmDYjQoPilOAK0-LGX8tTSaOkIT7OqVK1mNgEiL3jbJLZeI_Q6RAupyjVRzOJYe1CFg0bOw',
-    imgAlt: 'Escola Sabatina',
+    title: "Jovens",
+    desc: "Adolescentes e jovens adultos. Encontros aos sábados, viagens, projetos sociais e muita conversa real.",
+    img: jovensNit,
+    href: "#",
   },
   {
-    titulo: 'Jovens Niterói',
-    descricao: 'Culto Jovem aos sábados às 17:00. Integração e louvor contemporâneo.',
-    ctaLabel: 'Participar',
-    imgSrc: 'https://lh3.googleusercontent.com/aida/ADBb0ugLNad63_HEO_3TLQ69svI4r1aHBSqLD-12ZEys-0gwV_S_tKJV8L0d611GJJ4y94Ne3nG3urx5ZAglb82g9Bau0lmgF4fNW8fqUSnE5q5p_0Xf2-ca1GxAgM3lcnxoX54YMmxibGl9_7NvLdZeRmgctDRua9aMCJuB6L3dU3C973LjJVCc9N2YzhloXkrI9zI8teDBjKS7FURPVE0L9YAg09Z3f77o8xbLksj5f5bgwA294HGIbc9uiSDxC7XoXcSZUnGE1qtF2_c',
-    imgAlt: 'Jovens Niterói',
+    title: "Música",
+    desc: "Coral, banda do culto, instrumentistas e quem quer aprender. A música é como respiramos juntos aqui.",
+    img: "https://images.unsplash.com/photo-1465225314224-587cd83d322b?w=900&q=80",
+    href: "#",
   },
   {
-    titulo: 'Clube de Desbravadores',
-    descricao: 'Reuniões aos domingos às 09:00. Atividades ao ar livre e civismo.',
-    ctaLabel: 'Conhecer Clube',
-    imgSrc: 'https://lh3.googleusercontent.com/aida/ADBb0ui5oq5p5VDlkrSUKuXPCCDDrX33-s8xEUs7QcSP-OX8C_rWf2kdwwY1H3FKYcJKDUYW1Nug9FRlg6yzmyDnqOaRnsCkBwCJhgC2EFyqHvEo0zidwfHLcuzmwga3qflptvHw968tvUCpE413tVweBBmBHgRp6lpTfn-MZdvjbb1kfdRX_lE79bHxYE2zEQkI6B8bxEx9Zj_wKi0O_JVjEueWcUWu3Zab2wg2mS1YNrAQxhMZOpjkUzDKS-ObpENYKSRr_zda8FDkfno',
-    imgAlt: 'Clube de Desbravadores',
+    title: "Desbravadores",
+    desc: "Crianças e adolescentes vivendo aventuras, aprendendo habilidades e descobrindo a fé na prática.",
+    img: "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=900&q=80",
+    href: "#",
   },
 ];
 ---
 
-<section class="bg-tertiary-container text-on-tertiary-container py-24" aria-labelledby="departamentos-titulo">
-  <div class="max-w-7xl mx-auto px-8">
-    <div class="mb-16">
-      <h2 id="departamentos-titulo" class="noto-serif text-4xl text-on-tertiary mb-4 font-bold">
-        Departamentos
-      </h2>
-      <p class="manrope text-tertiary-fixed-dim">Conheça algumas de nossas atividades</p>
+<section class="section section--lg ministries-section">
+  <div class="container">
+    <div class="section__head section__head--center">
+      <div class="reveal"><span class="kicker">Ministérios</span></div>
+      <div class="reveal" style="transition-delay: 120ms">
+        <h2 class="section__title">
+          Lugares onde a comunidade <em>acontece</em>.
+        </h2>
+      </div>
+      <div class="reveal" style="transition-delay: 240ms">
+        <p class="section__lede">
+          A vida da igreja não está só no culto. Veja onde você pode se conectar durante a semana.
+        </p>
+      </div>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-      {
-        departamentos.map((dep) => (
-          <div class="group">
-            <div class="mb-6 overflow-hidden rounded-xl">
-              <img
-                src={dep.imgSrc}
-                alt={dep.imgAlt}
-                class="w-full h-48 object-cover transition-transform duration-700 group-hover:scale-110"
-              />
+    <div class="ministries">
+      {ministries.map((m, i) => (
+        <div class="reveal" style={`transition-delay: ${i * 100}ms`}>
+          <a href={m.href} class="ministry-card">
+            <div class="ministry-card__media framed">
+              {typeof m.img === 'string'
+                ? <Image src={m.img} alt={m.title} inferSize />
+                : <Image src={m.img} alt={m.title} />}
             </div>
-            <h4 class="noto-serif text-2xl text-on-tertiary mb-2 font-bold">{dep.titulo}</h4>
-            <p class="manrope text-sm mb-4 leading-relaxed text-on-tertiary-container/80">
-              {dep.descricao}
-            </p>
-            <a
-              href="#"
-              class="inline-flex items-center text-secondary-fixed text-xs font-bold tracking-widest uppercase hover:text-on-tertiary transition-colors"
-            >
-              {dep.ctaLabel}
-              <span class="material-symbols-outlined ml-2 text-sm">arrow_forward</span>
-            </a>
-          </div>
-        ))
-      }
+            <div class="ministry-card__body">
+              <h3 class="ministry-card__title">{m.title}</h3>
+              <p class="ministry-card__desc">{m.desc}</p>
+              <span class="ministry-card__cta">Conhecer <span class="arr">→</span></span>
+            </div>
+          </a>
+        </div>
+      ))}
     </div>
   </div>
 </section>
+
+<style>
+  .section__head { max-width: 720px; margin-bottom: 56px; }
+  .section__head--center { text-align: center; margin-left: auto; margin-right: auto; }
+  .section__title {
+    font-size: clamp(32px, 4vw, 52px);
+    margin-top: 14px;
+    font-weight: 400;
+    letter-spacing: -0.015em;
+  }
+  .section__title em { font-style: italic; color: var(--accent); }
+  .section__lede {
+    margin-top: 18px;
+    font-size: 17px;
+    color: var(--ink-soft);
+    max-width: 56ch;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .ministries {
+    margin-top: 64px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+
+  .ministry-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: transform var(--t-med), box-shadow var(--t-med), border-color var(--t-med);
+    text-decoration: none;
+    color: var(--ink);
+  }
+  .ministry-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 28px 60px -32px rgba(0,0,0,0.2);
+    border-color: var(--line-strong);
+  }
+  .ministry-card__media { aspect-ratio: 4/3; border-radius: 0; }
+  .ministry-card__body { padding: 28px 28px 30px; }
+  .ministry-card__title {
+    font-size: 26px;
+    margin-bottom: 10px;
+    font-weight: 400;
+    font-family: var(--serif);
+  }
+  .ministry-card__desc {
+    font-size: 14.5px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    margin-bottom: 22px;
+  }
+  .ministry-card__cta {
+    font-size: 13px;
+    color: var(--accent);
+    font-weight: 500;
+  }
+  .ministry-card:hover .ministry-card__cta .arr { transform: translateX(3px); }
+  .ministry-card__cta .arr { transition: transform var(--t-fast); display: inline-block; }
+
+  @media (max-width: 820px) {
+    .ministries { grid-template-columns: 1fr; }
+  }
+</style>

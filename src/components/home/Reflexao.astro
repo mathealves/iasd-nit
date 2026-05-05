@@ -1,14 +1,38 @@
 ---
 ---
 
-<section class="bg-surface-container py-24 px-8 overflow-hidden relative">
-  <div class="max-w-4xl mx-auto text-center relative z-10">
-    <span class="material-symbols-outlined text-primary/20 text-6xl mb-8 block">format_quote</span>
-    <blockquote class="noto-serif text-3xl md:text-4xl italic leading-snug mb-8 text-primary">
-      "Porque, onde estiverem dois ou três reunidos em meu nome, aí estou eu no meio deles."
-    </blockquote>
-    <cite class="manrope uppercase tracking-widest text-secondary text-sm font-bold not-italic">
-      — Mateus 18:20
-    </cite>
+<section class="section reflexao" style="background: var(--bg-soft); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
+  <div class="container">
+    <div class="reveal reflexao__inner">
+      <blockquote class="reflexao__quote">
+        <span>"Porque, onde estiverem dois ou três reunidos em meu nome, aí estou eu no meio deles."</span>
+        <cite>Mateus 18:20</cite>
+      </blockquote>
+    </div>
   </div>
 </section>
+
+<style>
+  .reflexao__inner { text-align: center; }
+  .reflexao__quote {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(22px, 2.8vw, 34px);
+    color: var(--ink);
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+    max-width: 32ch;
+    margin: 0 auto;
+  }
+  .reflexao__quote cite {
+    display: block;
+    margin-top: 20px;
+    font-style: normal;
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 500;
+  }
+</style>

@@ -1,41 +1,178 @@
 ---
+import { Image } from 'astro:assets';
+import heroCulto from '../../assets/hero-culto.png';
 ---
 
-<!-- Hero Section -->
-<header class="relative w-full mb-20 overflow-hidden pt-20">
-  <!-- Gradient overlay left side -->
-  <div class="absolute inset-0 z-0">
-    <div
-      class="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent z-10"
-    >
-    </div>
-    <img
-      src="https://lh3.googleusercontent.com/aida/ADBb0uih-2XsKGcgQTJdme95rwZ9xZeFO3MnaIPCUcJGI5GWnZmy_MdX5Rek6hvNAd6pDfBG5szyOIJegxqBEKxfucRd_Tx2LQLeO7fb7w6jHUp23xZMJmX3IFwLUyHVRd4yLkNtVMVG5BxpttR4RDylEsm1Yr-VS6F-TKaIzDOzOlw-lPlTQW65qoJ3-595g8LjkuFdkmX9jqG5Yy7Kcy8I25lrls9POdxKdm9g_INwKIa0LkFkgdnd_l5hhHn97DIWiRvxdk2awqlJzA"
-      alt="Culto na Igreja"
-      class="absolute right-0 top-0 h-full w-2/3 object-cover object-center"
-      loading="eager"
-      fetchpriority="high"
-    />
-  </div>
-
-  <div class="max-w-7xl mx-auto px-8 relative z-20 pt-16">
-    <div class="flex flex-col md:flex-row items-end gap-12">
-      <div class="flex-1 py-12">
-        <h1 class="noto-serif text-5xl md:text-7xl text-primary font-bold mb-6 leading-tight">
-          Aqui falamos de
-          <br />
-          <span
-            style="font-family: 'Dancing Script', cursive; font-size: 1.3em; color: #775a19; display: block; margin-top: 0.2em; line-height: 1;"
-          >
-            esperança!
-          </span>
+<section class="hero hero--editorial">
+  <div class="container hero__inner">
+    <!-- Text column -->
+    <div class="hero__text">
+      <div class="reveal" style="transition-delay: 120ms">
+        <h1 class="hero__title">
+          Aqui falamos de <em>esperança</em>!
         </h1>
-        <p class="manrope text-lg text-on-surface-variant max-w-xl leading-relaxed">
-          Seja bem-vindo à nossa comunidade no bairro Niterói, em Canoas.<br />
-          Viva aqui momentos dedicados ao louvor, estudo e serviço.<br />
-          Nossas portas e corações estão abertos para você. Venha adorar conosco!
+      </div>
+      <div class="reveal" style="transition-delay: 240ms">
+        <p class="hero__lede">
+          Uma comunidade adventista no bairro Niterói, em Canoas. Sem roteiro
+          decorado, sem julgamento — só pessoas tentando caminhar com Deus, juntas.
         </p>
+      </div>
+      <div class="reveal" style="transition-delay: 360ms">
+        <div class="hero__actions">
+          <a href="/quero-conhecer" class="btn btn--primary">
+            Planeje sua primeira visita <span class="arr">→</span>
+          </a>
+          <a href="/historia" class="btn btn--ghost">
+            Nossa história
+          </a>
+        </div>
+      </div>
+      <div class="reveal" style="transition-delay: 480ms">
+        <blockquote class="hero__verse">
+          <span>"Vinde a mim, todos os que estais cansados e sobrecarregados, e eu vos aliviarei."</span>
+          <cite>Mateus 11:28</cite>
+        </blockquote>
+      </div>
+    </div>
+
+    <!-- Media column -->
+    <div class="hero__media">
+      <div class="reveal" style="transition-delay: 200ms">
+        <div class="framed hero__image">
+          <Image src={heroCulto} alt="Interior da igreja IASD Niterói" />
+        </div>
+      </div>
+      <div class="reveal hero__card" style="transition-delay: 400ms">
+        <div class="hero__card-eyebrow">Próximo culto</div>
+        <div class="hero__card-day">
+          <span class="serif" style="font-size: 32px; line-height: 1;">Sábado</span>
+          <span class="hero__card-time">10:30</span>
+        </div>
+        <ul class="hero__card-list">
+          <li><span>09:00</span> Escola Sabatina</li>
+          <li><span>10:30</span> Culto Divino</li>
+        </ul>
       </div>
     </div>
   </div>
-</header>
+</section>
+
+<style>
+  .hero { padding: 60px 0 120px; }
+
+  .hero__inner {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .hero__title {
+    font-size: clamp(44px, 6vw, 76px);
+    letter-spacing: -0.015em;
+    font-weight: 400;
+    margin-top: 22px;
+    line-height: 1.05;
+  }
+  .hero__title em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero__lede {
+    margin-top: 24px;
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    max-width: 46ch;
+  }
+
+  .hero__actions {
+    margin-top: 32px;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .hero__verse {
+    margin: 40px 0 0;
+    padding: 22px 0 0;
+    border-top: 1px solid var(--line);
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 17px;
+    color: var(--ink-soft);
+    max-width: 42ch;
+    line-height: 1.5;
+  }
+  .hero__verse cite {
+    display: block;
+    margin-top: 10px;
+    font-style: normal;
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+
+  /* Media column */
+  .hero__media { position: relative; }
+  .hero__image { aspect-ratio: 4/5; }
+
+  .hero__card {
+    position: absolute;
+    bottom: -48px;
+    left: -32px;
+    background: var(--bg-card);
+    padding: 28px 30px 26px;
+    border-radius: 4px;
+    box-shadow: 0 24px 60px -20px rgba(0,0,0,0.18);
+    border: 1px solid var(--line);
+    width: 260px;
+  }
+
+  .hero__card-eyebrow {
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin-bottom: 10px;
+  }
+  .hero__card-day {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 14px;
+  }
+  .hero__card-time {
+    font-family: var(--serif);
+    font-size: 24px;
+    color: var(--accent);
+  }
+  .hero__card-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 13.5px;
+    color: var(--ink-soft);
+  }
+  .hero__card-list span {
+    display: inline-block;
+    width: 52px;
+    color: var(--ink-mute);
+    font-variant-numeric: tabular-nums;
+  }
+
+  @media (max-width: 900px) {
+    .hero__inner { grid-template-columns: 1fr; gap: 48px; }
+    .hero__card { position: static; width: 100%; margin-top: 16px; }
+    .hero { padding: 48px 0 80px; }
+  }
+</style>
