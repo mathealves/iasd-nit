@@ -2,7 +2,6 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import NavBar from '../components/NavBar.astro';
 import Footer from '../components/Footer.astro';
-import { Image } from 'astro:assets';
 
 const TIMELINE = [
   {
@@ -98,7 +97,7 @@ const TIMELINE = [
               </div>
               <div class="tl-entry__media">
                 <div class="framed">
-                  <Image src={entry.img} alt="" inferSize loading="lazy" />
+                  <img src={entry.img} alt="" loading="lazy" />
                 </div>
               </div>
             </div>

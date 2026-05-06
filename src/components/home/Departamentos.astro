@@ -46,7 +46,7 @@ const ministries = [
           <a href={m.href} class="ministry-card">
             <div class="ministry-card__media framed">
               {typeof m.img === 'string'
-                ? <Image src={m.img} alt={m.title} inferSize />
+                ? <img src={m.img} alt={m.title} />
                 : <Image src={m.img} alt={m.title} />}
             </div>
             <div class="ministry-card__body">
