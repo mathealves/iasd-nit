@@ -1,41 +1,147 @@
 ---
+import { Image } from 'astro:assets';
+import heroCulto from '../../assets/hero-culto.png';
 ---
 
-<!-- Hero Section -->
-<header class="relative w-full mb-20 overflow-hidden pt-20">
-  <!-- Gradient overlay left side -->
-  <div class="absolute inset-0 z-0">
-    <div
-      class="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent z-10"
-    >
-    </div>
-    <img
-      src="https://lh3.googleusercontent.com/aida/ADBb0uih-2XsKGcgQTJdme95rwZ9xZeFO3MnaIPCUcJGI5GWnZmy_MdX5Rek6hvNAd6pDfBG5szyOIJegxqBEKxfucRd_Tx2LQLeO7fb7w6jHUp23xZMJmX3IFwLUyHVRd4yLkNtVMVG5BxpttR4RDylEsm1Yr-VS6F-TKaIzDOzOlw-lPlTQW65qoJ3-595g8LjkuFdkmX9jqG5Yy7Kcy8I25lrls9POdxKdm9g_INwKIa0LkFkgdnd_l5hhHn97DIWiRvxdk2awqlJzA"
-      alt="Culto na Igreja"
-      class="absolute right-0 top-0 h-full w-2/3 object-cover object-center"
-      loading="eager"
-      fetchpriority="high"
-    />
+<section class="hero hero--editorial">
+  <!-- Full-width background image -->
+  <div class="hero__bg">
+    <Image src={heroCulto} alt="Interior da igreja IASD Niterói" />
+    <div class="hero__fade"></div>
   </div>
 
-  <div class="max-w-7xl mx-auto px-8 relative z-20 pt-16">
-    <div class="flex flex-col md:flex-row items-end gap-12">
-      <div class="flex-1 py-12">
-        <h1 class="noto-serif text-5xl md:text-7xl text-primary font-bold mb-6 leading-tight">
-          Aqui falamos de
-          <br />
-          <span
-            style="font-family: 'Dancing Script', cursive; font-size: 1.3em; color: #775a19; display: block; margin-top: 0.2em; line-height: 1;"
-          >
-            esperança!
-          </span>
+  <div class="container hero__inner">
+    <!-- Text column -->
+    <div class="hero__text">
+      <div class="reveal" style="transition-delay: 120ms">
+        <h1 class="hero__title">
+          Aqui falamos de <em>esperança</em>!
         </h1>
-        <p class="manrope text-lg text-on-surface-variant max-w-xl leading-relaxed">
-          Seja bem-vindo à nossa comunidade no bairro Niterói, em Canoas.<br />
-          Viva aqui momentos dedicados ao louvor, estudo e serviço.<br />
-          Nossas portas e corações estão abertos para você. Venha adorar conosco!
+      </div>
+      <div class="reveal" style="transition-delay: 240ms">
+        <p class="hero__lede">
+          Uma comunidade adventista no bairro Niterói, em Canoas. Sem roteiro
+          decorado, sem julgamento — só pessoas tentando caminhar com Deus, juntas.
         </p>
+      </div>
+      <div class="reveal" style="transition-delay: 360ms">
+        <div class="hero__actions">
+          <a href="/quero-conhecer" class="btn btn--primary">
+            Planeje sua primeira visita <span class="arr">→</span>
+          </a>
+          <a href="/historia" class="btn btn--ghost">
+            Nossa história
+          </a>
+        </div>
+      </div>
+      <div class="reveal" style="transition-delay: 480ms">
+        <blockquote class="hero__verse">
+          <span>"Vinde a mim, todos os que estais cansados e sobrecarregados, e eu vos aliviarei."</span>
+          <cite>Mateus 11:28</cite>
+        </blockquote>
       </div>
     </div>
   </div>
-</header>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    padding: 60px 0 120px;
+    overflow: hidden;
+  }
+
+  /* Full-bleed background image */
+  .hero__bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  .hero__bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+
+  /* White fade on the left so text stays readable */
+  .hero__fade {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to right,
+      white 0%,
+      white 38%,
+      rgba(255, 255, 255, 0.6) 58%,
+      rgba(255, 255, 255, 0) 75%
+    );
+  }
+
+  .hero__inner {
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero__text {
+    max-width: 560px;
+  }
+
+  .hero__title {
+    font-size: clamp(44px, 6vw, 76px);
+    letter-spacing: -0.015em;
+    font-weight: 400;
+    margin-top: 22px;
+    line-height: 1.05;
+  }
+
+  .hero__lede {
+    margin-top: 24px;
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    max-width: 46ch;
+  }
+
+  .hero__actions {
+    margin-top: 32px;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .hero__verse {
+    margin: 40px 0 0;
+    padding: 22px 0 0;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 17px;
+    color: var(--ink-soft);
+    max-width: 42ch;
+    line-height: 1.5;
+  }
+  .hero__verse cite {
+    display: block;
+    margin-top: 10px;
+    font-style: normal;
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+
+  @media (max-width: 900px) {
+    .hero { padding: 48px 0 80px; }
+    .hero__fade {
+      background: linear-gradient(
+        to bottom,
+        white 0%,
+        white 30%,
+        rgba(255, 255, 255, 0.85) 55%,
+        rgba(255, 255, 255, 0) 100%
+      );
+    }
+    .hero__text { max-width: 100%; }
+  }
+</style>

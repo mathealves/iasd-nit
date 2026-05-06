@@ -2,42 +2,324 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import NavBar from '../components/NavBar.astro';
 import Footer from '../components/Footer.astro';
+
+const STEPS = [
+  {
+    n: "1",
+    title: "Chegue quando quiser",
+    body: "Estacionamento gratuito na lateral. Se for seu primeiro sábado, a gente sugere chegar uns 5 minutos antes, mas chegar atrasado também tá ótimo.",
+  },
+  {
+    n: "2",
+    title: 'Diga "oi" (ou não)',
+    body: "Tem uma equipe de recepção na entrada. Você pode conversar, pedir um tour, ou só pegar o programa do dia e seguir direto pra dentro.",
+  },
+  {
+    n: "3",
+    title: "Sente onde quiser",
+    body: "Não tem lugar marcado. Se quiser observar primeiro, sente atrás. Se quiser estar perto, sente perto. Os dois funcionam.",
+  },
+  {
+    n: "4",
+    title: "Tome um café depois",
+    body: "Depois do culto, sempre tem café e algo pra comer no pátio. É a melhor hora pra fazer perguntas, conhecer gente ou simplesmente ir embora — sem pressão.",
+  },
+];
+
+const FAQS = [
+  {
+    q: "Vou me sentir deslocada por não conhecer nada sobre adventismo?",
+    a: "Não. A maioria das pessoas que aparece pela primeira vez aqui tem essa exata preocupação — e nenhuma delas tinha motivo. O culto não tem códigos secretos, ninguém vai te chamar à frente, e não existe um momento em que você precise saber a resposta certa. Se quiser, sente perto da porta. Se preferir, sente no meio. Ambos estão ótimos.",
+  },
+  {
+    q: "Que tipo de roupa devo usar?",
+    a: "Vista o que você usaria para um almoço de domingo com pessoas que você gosta. Tem gente de terno, gente de camiseta, gente de tênis. Ninguém vai olhar duas vezes — e se olhar, é porque está bonito mesmo.",
+  },
+  {
+    q: "Posso ir sozinha ou preciso ser convidada?",
+    a: "Pode ir sozinha. Não precisa de convite, anúncio prévio, ou conhecer alguém. Se quiser, na entrada tem alguém da equipe de recepção que pode te mostrar o espaço e te apresentar a algumas pessoas — mas só se você quiser. Algumas pessoas preferem chegar, sentar e observar primeiro. Tudo bem.",
+  },
+  {
+    q: "Quanto tempo dura o culto?",
+    a: "O Culto Divino, aos sábados às 10h30, dura cerca de uma hora e quinze. Antes dele, das 9h às 10h15, acontece a Escola Sabatina — um estudo da Bíblia em pequenos grupos, opcional. Você pode chegar só pro Culto, ou pegar os dois.",
+  },
+  {
+    q: "Tem estacionamento?",
+    a: "Sim. Estacionamento próprio na lateral do templo, gratuito, com cerca de 80 vagas. Aos sábados costuma encher por volta das 10h15 — se chegar perto desse horário, há mais vagas na rua, sem dificuldade.",
+  },
+  {
+    q: "Como funciona o sábado para os adventistas?",
+    a: "O sábado, pra gente, começa no pôr do sol de sexta e termina no pôr do sol de sábado. É um dia de descanso — não no sentido de não fazer nada, mas no sentido de deixar de lado o que é trabalho e dedicar o tempo a Deus, à família e às pessoas. Se você visitar e quiser entender melhor, qualquer pessoa aqui terá prazer em conversar.",
+  },
+  {
+    q: "Vão me pressionar a me batizar ou me tornar membro?",
+    a: "Não. Você pode visitar quantas vezes quiser sem ninguém te perguntar isso. O batismo, na nossa tradição, é uma decisão pessoal feita depois de muito estudo — não algo que se sugere a um visitante. Se em algum momento você quiser conversar sobre fé ou sobre a Bíblia, basta pedir. Até lá, você é só uma pessoa legal que veio passar um sábado com a gente.",
+  },
+  {
+    q: "Tem programação para as crianças?",
+    a: "Tem. Durante a Escola Sabatina (9h às 10h15) há turmas separadas por faixa etária, com professores treinados e atividades adequadas. Durante o Culto Divino, há um espaço Kids para crianças de 3 a 8 anos, se os pais preferirem. As crianças também são muito bem-vindas no culto principal — barulho, choro e tudo.",
+  },
+];
 ---
 
 <BaseLayout
   title="Quero Conhecer — IASD Niterói"
-  description="Tem dúvidas sobre a Igreja Adventista? Aqui você encontra respostas para as perguntas mais comuns de quem está conhecendo a nossa fé."
+  description="Tudo que você quis saber sobre visitar uma igreja adventista e tinha vergonha de perguntar. Respondemos direto, sem filtro."
 >
   <NavBar />
-  <main class="min-h-[80vh] flex items-center justify-center py-24 px-4">
-    <div class="text-center max-w-md">
-      <span
-        class="inline-block bg-secondary-container text-secondary text-xs font-bold px-4 py-1.5 rounded-full mb-6 uppercase tracking-widest"
-        >Em breve</span
-      >
-      <h1 class="text-4xl font-bold text-gray-900 mb-4">Quero Conhecer</h1>
-      <p class="text-gray-500 text-lg leading-relaxed">
-        Estamos preparando um espaço especial para responder suas dúvidas sobre a Igreja Adventista
-        do Sétimo Dia. Volte em breve!
-      </p>
-      <a href="/" class="mt-8 inline-flex items-center gap-2 text-secondary font-semibold hover:underline">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          aria-hidden="true"
-        >
-          <path d="M19 12H5M12 5l-7 7 7 7"></path>
-        </svg>
-        Voltar ao início
-      </a>
-    </div>
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <span class="kicker">Quero conhecer</span>
+        <h1 class="page-hero__title">
+          Tudo que você quis saber<br /><em>e tinha vergonha</em><br />de perguntar.
+        </h1>
+        <p class="page-hero__lede">
+          A gente sabe que ir numa igreja pela primeira vez pode ser estranho.
+          Compilamos as perguntas que mais ouvimos — e respondemos elas
+          direto, sem filtro de marketing.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="conhecer__grid">
+          <div class="conhecer__sidebar">
+            <div class="info-card reveal">
+              <div class="eyebrow">Endereço</div>
+              <p class="info-card__big">Rua das Acácias, 1245<br />Niterói · Canoas — RS</p>
+              <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="info-card__link">Ver no mapa →</a>
+            </div>
+            <div class="info-card reveal">
+              <div class="eyebrow">Horários</div>
+              <ul class="info-card__list">
+                <li><b>Sáb · 09:00</b> Escola Sabatina</li>
+                <li><b>Sáb · 10:30</b> Culto Divino</li>
+                <li><b>Qua · 19:30</b> Reunião de Oração</li>
+              </ul>
+            </div>
+            <div class="info-card info-card--accent reveal">
+              <div class="eyebrow" style="color: rgba(255,255,255,0.7);">Quer falar antes?</div>
+              <p class="info-card__big" style="color: #fff;">
+                Se preferir, mande uma mensagem antes da sua visita.
+              </p>
+              <a href="mailto:contato@iasdniteroi.org.br" class="info-card__link" style="color: var(--gold);">contato@iasdniteroi.org.br →</a>
+            </div>
+          </div>
+
+          <div class="conhecer__main">
+            <h2 class="section__title">
+              Como funciona<br /><em>uma visita</em>.
+            </h2>
+            <div class="steps">
+              {STEPS.map((s) => (
+                <div class="step reveal">
+                  <div class="step__n">{s.n}</div>
+                  <div class="step__body">
+                    <h3 class="step__title">{s.title}</h3>
+                    <p>{s.body}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section faq-section">
+      <div class="container">
+        <div class="faq__head">
+          <span class="kicker">Perguntas frequentes</span>
+          <h2 class="section__title">Sem rodeios.</h2>
+        </div>
+        <div class="faq" id="faq-list">
+          {FAQS.map((f, i) => (
+            <div class={`faq-item${i === 0 ? ' faq-item--open' : ''}`} data-faq>
+              <button class="faq-item__btn" aria-expanded={i === 0 ? 'true' : 'false'}>
+                <span class="faq-item__num">{String(i + 1).padStart(2, '0')}</span>
+                <span class="faq-item__q">{f.q}</span>
+                <span class="faq-item__icon" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 14 14"><path d="M7 1 L7 13 M1 7 L13 7" stroke="currentColor" stroke-width="1.4" /></svg>
+                </span>
+              </button>
+              <div class="faq-item__body">
+                <div class="faq-item__inner">
+                  <p>{f.a}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
   </main>
   <Footer />
 </BaseLayout>
+
+<script>
+  document.querySelectorAll('[data-faq]').forEach((item) => {
+    const btn = item.querySelector('.faq-item__btn') as HTMLButtonElement;
+    btn.addEventListener('click', () => {
+      const isOpen = item.classList.contains('faq-item--open');
+      item.classList.toggle('faq-item--open', !isOpen);
+      btn.setAttribute('aria-expanded', String(!isOpen));
+    });
+  });
+</script>
+
+<style>
+  /* ── 2-col layout ── */
+  .conhecer__grid {
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .conhecer__sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: sticky;
+    top: 100px;
+  }
+
+  /* ── Info cards ── */
+  .info-card {
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    padding: 28px 28px 26px;
+    border-radius: 4px;
+  }
+  .info-card .eyebrow { display: block; margin-bottom: 12px; }
+  .info-card__big {
+    font-family: var(--serif);
+    font-size: 22px;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+  .info-card__list {
+    list-style: none;
+    padding: 0;
+    margin: 8px 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 14.5px;
+    color: var(--ink-soft);
+  }
+  .info-card__list b { color: var(--ink); margin-right: 8px; font-weight: 500; font-variant-numeric: tabular-nums; }
+  .info-card__link {
+    display: inline-block;
+    margin-top: 16px;
+    font-size: 13px;
+    color: var(--accent);
+    font-weight: 500;
+  }
+  .info-card--accent {
+    background: var(--accent-deep);
+    color: #fff;
+    border-color: var(--accent-deep);
+  }
+
+  /* ── Steps ── */
+  .conhecer__main { padding-top: 8px; }
+  .steps { margin-top: 40px; display: flex; flex-direction: column; }
+  .step {
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 24px;
+    padding: 28px 0;
+    border-top: 1px solid var(--line);
+  }
+  .step:last-child { border-bottom: 1px solid var(--line); }
+  .step__n {
+    font-family: var(--serif);
+    font-size: 32px;
+    color: var(--accent);
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+  .step__title {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 400;
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+  }
+  .step__body p { font-size: 15.5px; color: var(--ink-soft); line-height: 1.65; max-width: 56ch; }
+
+  /* ── FAQ ── */
+  .faq-section { background: var(--bg-soft); }
+  .faq__head { max-width: 720px; margin-bottom: 56px; }
+  .faq {
+    max-width: 880px;
+    border-top: 1px solid var(--line-strong);
+  }
+  .faq-item { border-bottom: 1px solid var(--line-strong); }
+  .faq-item__btn {
+    display: grid;
+    grid-template-columns: 56px 1fr 32px;
+    gap: 20px;
+    align-items: start;
+    width: 100%;
+    background: transparent;
+    border: 0;
+    padding: 28px 8px;
+    text-align: left;
+    cursor: pointer;
+    color: var(--ink);
+    transition: color var(--t-fast);
+    font-family: var(--sans);
+  }
+  .faq-item__btn:hover { color: var(--accent); }
+  .faq-item__num {
+    font-family: var(--serif);
+    font-size: 14px;
+    color: var(--ink-mute);
+    font-variant-numeric: tabular-nums;
+    padding-top: 2px;
+  }
+  .faq-item__q {
+    font-family: var(--serif);
+    font-size: clamp(20px, 2.2vw, 26px);
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+    font-weight: 400;
+  }
+  .faq-item__icon {
+    width: 32px; height: 32px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--ink-mute);
+    transition: transform var(--t-med);
+    margin-top: 2px;
+  }
+  .faq-item--open .faq-item__icon { transform: rotate(45deg); color: var(--accent); }
+
+  .faq-item__body {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows var(--t-med);
+  }
+  .faq-item--open .faq-item__body { grid-template-rows: 1fr; }
+  .faq-item__inner { overflow: hidden; padding: 0 8px 0 84px; }
+  .faq-item__inner p {
+    padding-bottom: 28px;
+    font-size: 15.5px;
+    color: var(--ink-soft);
+    line-height: 1.7;
+    max-width: 65ch;
+  }
+
+  /* ── Mobile ── */
+  @media (max-width: 900px) {
+    .conhecer__grid { grid-template-columns: 1fr; gap: 40px; }
+    .conhecer__sidebar { position: static; }
+  }
+  @media (max-width: 700px) {
+    .faq-item__btn { grid-template-columns: 32px 1fr 24px; gap: 12px; padding: 22px 4px; }
+    .faq-item__inner { padding-left: 44px; }
+  }
+</style>

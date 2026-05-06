@@ -1,86 +1,201 @@
 ---
+const days = [
+  {
+    day: "Quarta-feira",
+    icon: "sparkles",
+    highlight: false,
+    services: [
+      { title: "Culto", desc: "Adoração e Mensagem", time: "20:00" },
+    ],
+  },
+  {
+    day: "Sábado",
+    icon: "badge",
+    highlight: true,
+    services: [
+      { title: "Escola Sabatina", desc: "Estudo Bíblico em Grupos", time: "09:00" },
+      { title: "Culto", desc: "Adoração e Mensagem", time: "10:30" },
+    ],
+  },
+  {
+    day: "Domingo",
+    icon: "moon",
+    highlight: false,
+    services: [
+      { title: "Culto", desc: "Adoração e Mensagem", time: "19:00" },
+    ],
+  },
+];
 ---
 
-<section class="max-w-7xl mx-auto px-8 mb-20" aria-labelledby="horarios-titulo">
-  <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-    <!-- Wednesday -->
-    <div
-      class="bg-surface-container-lowest p-10 rounded-xl transition-all duration-300 hover:shadow-xl group border border-surface-container"
-    >
-      <div class="flex justify-between items-start mb-12">
-        <span class="material-symbols-outlined text-secondary text-3xl">auto_awesome</span>
-        <div class="text-right">
-          <span class="block noto-serif text-3xl text-primary font-bold">Quarta-feira</span>
-        </div>
-      </div>
-      <div class="space-y-8">
-        <div class="flex items-center justify-between border-b border-surface-container py-4">
-          <div>
-            <h3 class="font-bold text-primary">Culto</h3>
-            <p class="text-sm text-on-surface-variant">Adoração e Mensagem</p>
-          </div>
-          <span class="noto-serif text-xl text-secondary">20:00</span>
-        </div>
-      </div>
+<section class="section" id="horarios">
+  <div class="container flex flex-col">
+    <div class="section__head">
+      <div class="reveal"><span class="kicker">Programação semanal</span></div>
     </div>
 
-    <!-- Saturday (The Sabbath) — highlighted -->
-    <div
-      class="bg-primary-container p-10 rounded-xl lg:scale-105 shadow-2xl relative overflow-hidden"
-    >
-      <div class="absolute top-0 right-0 p-4 opacity-10 pointer-events-none">
-        <span class="material-symbols-outlined text-[120px]" style="font-variation-settings: 'FILL' 1;">wb_sunny</span>
-      </div>
-      <div class="relative z-10">
-        <div class="flex justify-between items-start mb-12">
-          <span
-            class="material-symbols-outlined text-secondary-fixed text-4xl"
-            style="font-variation-settings: 'FILL' 1;"
-          >verified</span>
-          <div class="text-right">
-            <span class="block noto-serif text-3xl text-on-primary font-bold">Sábado</span>
+    <div class="schedule">
+      {days.map((d, i) => (
+        <div
+          class={`reveal schedule__card${d.highlight ? " schedule__card--highlight" : ""}`}
+          style={`transition-delay: ${i * 120}ms`}
+        >
+          <div class="schedule__header">
+            <span class="schedule__icon" aria-hidden="true">
+              {d.icon === "sparkles" && (
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 3 L13.5 8.5 L19 10 L13.5 11.5 L12 17 L10.5 11.5 L5 10 L10.5 8.5 Z"/>
+                  <path d="M5 3 L5.7 5.3 L8 6 L5.7 6.7 L5 9 L4.3 6.7 L2 6 L4.3 5.3 Z" opacity="0.6"/>
+                </svg>
+              )}
+              {d.icon === "badge" && (
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2l2.4 3.2L18 4l.8 3.8L22 10l-2.4 3.2.8 3.8-3.8.8L14.4 21 12 18.4 9.6 21l-3.2-3.2-3.8-.8.8-3.8L2 10l3.2-2.2L6 4l3.6 1.2Z"/>
+                  <polyline points="9 12 11 14 15 10"/>
+                </svg>
+              )}
+              {d.icon === "moon" && (
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/>
+                </svg>
+              )}
+            </span>
+            <h2 class="schedule__day">{d.day}</h2>
           </div>
-        </div>
-        <div class="space-y-8">
-          <div
-            class="flex items-center justify-between border-b border-on-primary-fixed-variant py-4"
-          >
-            <div>
-              <h3 class="font-bold text-on-primary">Escola Sabatina</h3>
-              <p class="text-sm text-on-primary-container">Estudo Bíblico em Grupos</p>
-            </div>
-            <span class="noto-serif text-xl text-secondary-fixed">09:00</span>
-          </div>
-          <div class="flex items-center justify-between py-4">
-            <div>
-              <h3 class="font-bold text-on-primary">Culto</h3>
-              <p class="text-sm text-on-primary-container">Adoração e Mensagem</p>
-            </div>
-            <span class="noto-serif text-xl text-secondary-fixed">10:30</span>
-          </div>
-        </div>
-      </div>
-    </div>
 
-    <!-- Sunday -->
-    <div
-      class="bg-surface-container-lowest p-10 rounded-xl transition-all duration-300 hover:shadow-xl border border-surface-container"
-    >
-      <div class="flex justify-between items-start mb-12">
-        <span class="material-symbols-outlined text-secondary text-3xl">nightlight</span>
-        <div class="text-right">
-          <span class="block noto-serif text-3xl text-primary font-bold">Domingo</span>
-        </div>
-      </div>
-      <div class="space-y-8">
-        <div class="flex items-center justify-between border-b border-surface-container py-4">
-          <div>
-            <h3 class="font-bold text-primary">Culto</h3>
-            <p class="text-sm text-on-surface-variant">Adoração e Mensagem</p>
+          <div class="schedule__services">
+            {d.services.map((s, si) => (
+              <div class={`schedule__service${si < d.services.length - 1 ? " schedule__service--bordered" : ""}`}>
+                <div class="schedule__service-info">
+                  <span class="schedule__service-title">{s.title}</span>
+                  <span class="schedule__service-desc">{s.desc}</span>
+                </div>
+                <span class="schedule__time">{s.time}</span>
+              </div>
+            ))}
           </div>
-          <span class="noto-serif text-xl text-secondary">19:00</span>
         </div>
-      </div>
+      ))}
     </div>
   </div>
 </section>
+
+<style>
+  .section__head { max-width: 720px; margin-bottom: 56px; }
+
+  .schedule {
+    display: grid;
+    grid-template-columns: 1fr 1.08fr 1fr;
+    gap: 1.5rem;
+    align-items: center;
+  }
+
+  .schedule__card {
+    padding: 36px 32px 40px;
+    border-radius: 1rem;
+    background: var(--bg-card);
+    box-shadow: 0 8px 32px -8px rgba(0,30,64,0.08);
+    transition: box-shadow var(--t-med), transform var(--t-med);
+  }
+  .schedule__card:hover {
+    box-shadow: 0 16px 48px -8px rgba(0,30,64,0.14);
+    transform: translateY(-3px);
+  }
+
+  .schedule__card--highlight {
+    background: #0f2a5e;
+    box-shadow: 0 24px 64px -12px rgba(15,42,94,0.40);
+    padding: 44px 36px 48px;
+    color: #fff;
+  }
+  .schedule__card--highlight:hover {
+    box-shadow: 0 32px 72px -8px rgba(15,42,94,0.50);
+  }
+
+  /* Header row: icon + day name */
+  .schedule__header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+  .schedule__icon {
+    flex-shrink: 0;
+    color: var(--gold);
+  }
+  .schedule__card--highlight .schedule__icon {
+    color: var(--gold);
+  }
+  .schedule__day {
+    font-family: var(--serif);
+    font-size: 1.65rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 0;
+  }
+  .schedule__card--highlight .schedule__day {
+    color: #fff;
+  }
+
+  /* Service rows */
+  .schedule__services {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .schedule__service {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 16px 0;
+  }
+  .schedule__service--bordered {
+    border-bottom: 1px solid rgba(0,30,64,0.08);
+  }
+  .schedule__card--highlight .schedule__service--bordered {
+    border-bottom-color: rgba(255,255,255,0.12);
+  }
+
+  .schedule__service-info {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+  .schedule__service-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .schedule__card--highlight .schedule__service-title {
+    color: #fff;
+  }
+  .schedule__service-desc {
+    font-size: 13px;
+    color: var(--ink-soft);
+  }
+  .schedule__card--highlight .schedule__service-desc {
+    color: rgba(255,255,255,0.6);
+  }
+
+  .schedule__time {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    color: var(--gold);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .schedule__card--highlight .schedule__time {
+    color: var(--gold);
+  }
+
+  @media (max-width: 820px) {
+    .schedule {
+      grid-template-columns: 1fr;
+    }
+    .schedule__card--highlight {
+      order: -1;
+    }
+  }
+</style>

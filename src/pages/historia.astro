@@ -2,42 +2,272 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import NavBar from '../components/NavBar.astro';
 import Footer from '../components/Footer.astro';
+
+const TIMELINE = [
+  {
+    year: "1981",
+    label: "Os primeiros encontros",
+    body: "Um pequeno grupo de famílias adventistas começa a se reunir aos sábados na sala de estar da família Schmidt, no bairro Niterói. Eram seis famílias — todas que cabiam no sofá e em cadeiras emprestadas dos vizinhos.",
+    img: "https://images.unsplash.com/photo-1481833761820-0509d3217039?w=900&q=80",
+    side: "left",
+  },
+  {
+    year: "1984",
+    label: "A primeira casa",
+    body: "Com o grupo crescendo para mais de 40 pessoas, alugamos uma casa simples na Rua das Acácias. As paredes foram pintadas num mutirão de sábado à noite. Algumas dessas tintas ainda estão lá, sob as camadas atuais.",
+    img: "https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=900&q=80",
+    side: "right",
+  },
+  {
+    year: "1989",
+    label: "Organização oficial",
+    body: "A congregação é oficialmente organizada como igreja pela União Sul-Brasileira da IASD. Éramos 87 membros batizados naquele sábado de outubro. O pastor da época chorou na cerimônia — quase ninguém percebeu.",
+    img: "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=900&q=80",
+    side: "left",
+  },
+  {
+    year: "1995",
+    label: "Os Desbravadores",
+    body: "O Clube de Desbravadores Niterói nasce com 22 crianças e 6 conselheiros. Primeira camporee no ano seguinte — viajamos em três Kombis emprestadas. Ninguém dormiu na primeira noite.",
+    img: "https://images.unsplash.com/photo-1501555088652-021faa106b9b?w=900&q=80",
+    side: "right",
+  },
+  {
+    year: "2003",
+    label: "O templo atual",
+    body: "Após anos de campanha, a comunidade constrói o templo onde estamos hoje. Cada banco foi pago por uma família. As vitrais foram desenhadas por um membro arquiteto, sem cobrar pelo trabalho.",
+    img: "https://images.unsplash.com/photo-1438032005730-c779502df39b?w=900&q=80",
+    side: "left",
+  },
+  {
+    year: "2011",
+    label: "Trinta anos",
+    body: "Comemoramos três décadas com um culto especial e um livro de memórias compilado por membros mais antigos. 412 pessoas assinaram o livro de presença naquele sábado.",
+    img: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=900&q=80",
+    side: "right",
+  },
+  {
+    year: "2020",
+    label: "Cultos online",
+    body: "A pandemia nos obriga a reinventar tudo em duas semanas. Aprendemos a transmitir cultos pelo YouTube. Nossa audiência cresce além das fronteiras de Canoas — gente do Brasil inteiro começa a assistir.",
+    img: "https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=900&q=80",
+    side: "left",
+  },
+  {
+    year: "2026",
+    label: "Hoje",
+    body: "Cerca de 600 membros, três ministérios ativos, um coral, uma banda, um clube de desbravadores e uma comunidade que continua acreditando que o melhor jeito de receber alguém é com o café passado e a porta aberta.",
+    img: "https://images.unsplash.com/photo-1519892300165-cb5542fb47c7?w=900&q=80",
+    side: "right",
+  },
+];
 ---
 
 <BaseLayout
-  title="História — IASD Niterói"
-  description="Conheça a história da Igreja Adventista do Sétimo Dia do Bairro Niterói — sua origem, crescimento e legado na comunidade."
+  title="Nossa História — IASD Niterói"
+  description="Quarenta e cinco anos de comunidade adventista no bairro Niterói, em Canoas. De uma sala de estar com seis famílias a uma igreja de 600 membros."
 >
   <NavBar />
-  <main class="min-h-[80vh] flex items-center justify-center py-24 px-4">
-    <div class="text-center max-w-md">
-      <span
-        class="inline-block bg-secondary-container text-secondary text-xs font-bold px-4 py-1.5 rounded-full mb-6 uppercase tracking-widest"
-        >Em breve</span
-      >
-      <h1 class="text-4xl font-bold text-gray-900 mb-4">Nossa História</h1>
-      <p class="text-gray-500 text-lg leading-relaxed">
-        Estamos preparando o conteúdo desta página. Em breve você poderá conhecer a trajetória da
-        nossa congregação no Bairro Niterói.
-      </p>
-      <a href="/" class="mt-8 inline-flex items-center gap-2 text-secondary font-semibold hover:underline">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          aria-hidden="true"
-        >
-          <path d="M19 12H5M12 5l-7 7 7 7"></path>
-        </svg>
-        Voltar ao início
-      </a>
-    </div>
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <span class="kicker">Nossa história</span>
+        <h1 class="page-hero__title">
+          Quarenta e cinco anos<br /><em>numa sala de estar</em><br />que cresceu.
+        </h1>
+        <p class="page-hero__lede">
+          Uma comunidade só existe se alguém decide aparecer toda semana.
+          Nossa história é feita de gente que apareceu — em sofás emprestados,
+          em mutirões de pintura, em viagens de Kombi com pneu furado, e em
+          sábados comuns ao longo de quase meio século.
+        </p>
+      </div>
+    </section>
+
+    <section class="timeline-section">
+      <div class="container">
+        <div class="timeline">
+          <div class="timeline__spine" aria-hidden="true"></div>
+          {TIMELINE.map((entry, i) => (
+            <div class={`tl-entry tl-entry--${entry.side}`} data-index={i}>
+              <div class="tl-entry__content">
+                <div class="tl-entry__year">{entry.year}</div>
+                <h3 class="tl-entry__title">{entry.label}</h3>
+                <p class="tl-entry__body">{entry.body}</p>
+              </div>
+              <div class="tl-entry__media">
+                <div class="framed">
+                  <img src={entry.img} alt="" loading="lazy" />
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section history-cta">
+      <div class="container history-cta__inner">
+        <span class="kicker">E você?</span>
+        <h2 class="section__title">
+          Os próximos capítulos<br /><em>incluem você</em>.
+        </h2>
+        <p class="history-cta__lede">
+          Toda história precisa de gente nova chegando. Venha tomar um café
+          num sábado e veja se é seu lugar.
+        </p>
+        <div style="margin-top: 32px;">
+          <a href="/quero-conhecer" class="btn btn--primary">
+            Planeje sua visita <span class="arr">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
   </main>
   <Footer />
 </BaseLayout>
+
+<script>
+  const io = new IntersectionObserver(
+    (entries) => entries.forEach((e) => {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    }),
+    { threshold: 0.15 }
+  );
+  document.querySelectorAll('.tl-entry').forEach((el) => {
+    const r = el.getBoundingClientRect();
+    if (r.top < window.innerHeight + 100) { el.classList.add('in'); }
+    else { io.observe(el); }
+  });
+</script>
+
+<style>
+  /* ── Timeline section ── */
+  .timeline-section { padding: 100px 0 120px; }
+  .timeline {
+    position: relative;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .timeline__spine {
+    position: absolute;
+    top: 0; bottom: 0; left: 50%;
+    width: 1px;
+    background: var(--line);
+    transform: translateX(-50%);
+  }
+
+  .tl-entry {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 56px 1fr;
+    gap: 0;
+    padding: 60px 0;
+    align-items: start;
+  }
+  .tl-entry__dot {
+    position: relative;
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 2px solid var(--accent);
+    justify-self: center;
+    z-index: 1;
+    transition: transform 600ms cubic-bezier(.2,.7,.3,1), background 600ms;
+    transform: scale(0.4);
+  }
+  .tl-entry.in .tl-entry__dot {
+    transform: scale(1);
+    background: var(--accent);
+  }
+
+  .tl-entry__content {
+    padding: 0 48px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 700ms cubic-bezier(.2,.7,.3,1), transform 700ms cubic-bezier(.2,.7,.3,1);
+    transition-delay: 100ms;
+  }
+  .tl-entry__media {
+    padding: 0 48px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 700ms cubic-bezier(.2,.7,.3,1), transform 700ms cubic-bezier(.2,.7,.3,1);
+    transition-delay: 250ms;
+  }
+  .tl-entry.in .tl-entry__content,
+  .tl-entry.in .tl-entry__media {
+    opacity: 1; transform: none;
+  }
+
+  .tl-entry--left .tl-entry__content { grid-column: 1; text-align: right; }
+  .tl-entry--left .tl-entry__media   { grid-column: 3; }
+  .tl-entry--right .tl-entry__content { grid-column: 3; }
+  .tl-entry--right .tl-entry__media   { grid-column: 1; }
+
+  .tl-entry__year {
+    font-family: var(--serif);
+    font-size: 64px;
+    letter-spacing: -0.03em;
+    color: var(--accent);
+    line-height: 1;
+  }
+  .tl-entry__title {
+    font-family: var(--serif);
+    font-size: 26px;
+    margin: 14px 0 14px;
+    letter-spacing: -0.01em;
+    font-weight: 400;
+  }
+  .tl-entry__body {
+    font-size: 15.5px;
+    color: var(--ink-soft);
+    line-height: 1.65;
+    max-width: 38ch;
+  }
+  .tl-entry--left .tl-entry__body { margin-left: auto; }
+
+  .tl-entry__media .framed {
+    aspect-ratio: 4/3;
+    max-width: 460px;
+  }
+  .tl-entry--right .tl-entry__media .framed { margin-left: auto; }
+
+  /* ── CTA ── */
+  .history-cta__inner {
+    text-align: center;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .history-cta__lede {
+    margin-top: 24px;
+    color: var(--ink-soft);
+    font-size: 17px;
+    line-height: 1.6;
+  }
+
+  /* ── Mobile ── */
+  @media (max-width: 820px) {
+    .timeline__spine { left: 18px; }
+    .tl-entry {
+      grid-template-columns: 36px 1fr;
+      padding: 36px 0;
+      gap: 0;
+    }
+    .tl-entry__dot { grid-column: 1; grid-row: 1; justify-self: center; align-self: start; margin-top: 8px; }
+    .tl-entry__content,
+    .tl-entry--left .tl-entry__content,
+    .tl-entry--right .tl-entry__content {
+      grid-column: 2; grid-row: 1; padding: 0 0 0 18px; text-align: left;
+    }
+    .tl-entry__media,
+    .tl-entry--left .tl-entry__media,
+    .tl-entry--right .tl-entry__media {
+      grid-column: 2; grid-row: 2; padding: 18px 0 0 18px;
+    }
+    .tl-entry__year { font-size: 42px; }
+    .tl-entry__body { max-width: none; }
+    .tl-entry__media .framed { margin-left: 0 !important; max-width: none; }
+  }
+</style>
