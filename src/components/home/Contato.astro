@@ -76,10 +76,10 @@ import { Image } from 'astro:assets';
 
 <style>
   .visit-cta__box {
-    background: var(--accent-deep);
+    background: linear-gradient(45deg, var(--accent-deep) 0%, var(--accent) 100%);
     color: var(--bg);
     padding: 72px 64px;
-    border-radius: 4px;
+    border-radius: 0.75rem;
     display: grid;
     grid-template-columns: 1.3fr auto;
     gap: 48px;
@@ -103,15 +103,13 @@ import { Image } from 'astro:assets';
     line-height: 1.6;
   }
   .visit-cta__btn {
-    background: var(--bg) !important;
+    background: #f9f9f9 !important;
     color: var(--accent-deep) !important;
-    border-color: var(--bg) !important;
     white-space: nowrap;
+    border-radius: 0.375rem;
   }
   .visit-cta__btn:hover {
-    background: var(--gold) !important;
-    color: var(--accent-deep) !important;
-    border-color: var(--gold) !important;
+    filter: brightness(0.95) !important;
     transform: translateY(-1px);
   }
 
@@ -128,7 +126,6 @@ import { Image } from 'astro:assets';
     grid-template-columns: 100px 1fr;
     gap: 16px;
     padding: 20px 0;
-    border-top: 1px solid var(--line);
     font-size: 15px;
     color: var(--ink-soft);
     line-height: 1.6;

@@ -70,7 +70,7 @@ const ministries = [
     font-weight: 400;
     letter-spacing: -0.015em;
   }
-  .section__title em { font-style: italic; color: var(--accent); }
+  .section__title em { font-style: italic; color: var(--gold); }
   .section__lede {
     margin-top: 18px;
     font-size: 17px;
@@ -91,17 +91,16 @@ const ministries = [
     display: flex;
     flex-direction: column;
     background: var(--bg-card);
-    border: 1px solid var(--line);
-    border-radius: 4px;
+    border-radius: 0.75rem;
     overflow: hidden;
-    transition: transform var(--t-med), box-shadow var(--t-med), border-color var(--t-med);
+    box-shadow: 0 32px 64px -24px rgba(0,30,64,0.06);
+    transition: transform var(--t-med), box-shadow var(--t-med);
     text-decoration: none;
     color: var(--ink);
   }
   .ministry-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 28px 60px -32px rgba(0,0,0,0.2);
-    border-color: var(--line-strong);
+    box-shadow: 0 32px 80px -16px rgba(0,30,64,0.12);
   }
   .ministry-card__media { aspect-ratio: 4/3; border-radius: 0; }
   .ministry-card__body { padding: 28px 28px 30px; }
