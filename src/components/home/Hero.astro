@@ -15,28 +15,28 @@ import heroCulto from '../../assets/hero-culto.png';
     <div class="hero__text">
       <div class="reveal" style="transition-delay: 120ms">
         <h1 class="hero__title">
-          Aqui falamos de <em>esperança</em>!
+          Aqui falamos de <em>esperança!</em>
         </h1>
       </div>
       <div class="reveal" style="transition-delay: 240ms">
         <p class="hero__lede">
-          Uma comunidade adventista no bairro Niterói, em Canoas. Sem roteiro
-          decorado, sem julgamento — só pessoas tentando caminhar com Deus, juntas.
+          Uma tradicional comunidade adventista no bairro Niterói, em Canoas. 60 anos de compromisso
+          com a fé, a família e o serviço. Venha nos conhecer!
         </p>
       </div>
       <div class="reveal" style="transition-delay: 360ms">
         <div class="hero__actions">
-          <a href="/quero-conhecer" class="btn btn--primary">
+          <a href="#" class="btn btn--primary">
             Planeje sua primeira visita <span class="arr">→</span>
           </a>
-          <a href="/historia" class="btn btn--ghost">
-            Nossa história
-          </a>
+          <a href="#" class="btn btn--ghost"> Nossa história </a>
         </div>
       </div>
       <div class="reveal" style="transition-delay: 480ms">
         <blockquote class="hero__verse">
-          <span>"Vinde a mim, todos os que estais cansados e sobrecarregados, e eu vos aliviarei."</span>
+          <span
+            >"Vinde a mim, todos os que estais cansados e sobrecarregados, e eu vos aliviarei."</span
+          >
           <cite>Mateus 11:28</cite>
         </blockquote>
       </div>
@@ -49,6 +49,7 @@ import heroCulto from '../../assets/hero-culto.png';
     position: relative;
     padding: 60px 0 120px;
     overflow: hidden;
+    height: 100vh;
   }
 
   /* Full-bleed background image */
@@ -71,8 +72,7 @@ import heroCulto from '../../assets/hero-culto.png';
     inset: 0;
     background: linear-gradient(
       to right,
-      white 0%,
-      white 38%,
+      var(--bg) 38%,
       rgba(255, 255, 255, 0.6) 58%,
       rgba(255, 255, 255, 0) 75%
     );
@@ -90,7 +90,7 @@ import heroCulto from '../../assets/hero-culto.png';
   .hero__title {
     font-size: clamp(44px, 6vw, 76px);
     letter-spacing: -0.015em;
-    font-weight: 400;
+    font-weight: 500;
     margin-top: 22px;
     line-height: 1.05;
   }
@@ -132,16 +132,27 @@ import heroCulto from '../../assets/hero-culto.png';
   }
 
   @media (max-width: 900px) {
-    .hero { padding: 48px 0 80px; }
+    .hero {
+      padding: 48px 0 80px;
+    }
+    .hero__bg {
+      top: 45%;
+    }
+    .hero__bg img {
+      /* object-fit: cover; */
+      /* object-position: center top; */
+    }
     .hero__fade {
       background: linear-gradient(
         to bottom,
-        white 0%,
-        white 30%,
-        rgba(255, 255, 255, 0.85) 55%,
-        rgba(255, 255, 255, 0) 100%
+        var(--bg) 0%,
+        /* var(--bg) 10%, */
+        /* rgba(255, 255, 255, 0.85) 15%, */
+        rgba(255, 255, 255, 0) 72%
       );
     }
-    .hero__text { max-width: 100%; }
+    .hero__text {
+      max-width: 100%;
+    }
   }
 </style>

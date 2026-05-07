@@ -4,22 +4,22 @@ import jovensNit from '../../assets/jovens-nit.png';
 
 const ministries = [
   {
-    title: "Jovens",
-    desc: "Adolescentes e jovens adultos. Encontros aos sábados, viagens, projetos sociais e muita conversa real.",
+    title: 'Jovens',
+    desc: 'Adolescentes e jovens adultos. Encontros aos sábados, viagens, projetos sociais e muita conversa real.',
     img: jovensNit,
-    href: "#",
+    href: '#',
   },
   {
-    title: "Música",
-    desc: "Coral, banda do culto, instrumentistas e quem quer aprender. A música é como respiramos juntos aqui.",
-    img: "https://images.unsplash.com/photo-1465225314224-587cd83d322b?w=900&q=80",
-    href: "#",
+    title: 'Música',
+    desc: 'Coral, banda do culto, instrumentistas e quem quer aprender. A música é como respiramos juntos aqui.',
+    img: 'https://images.unsplash.com/photo-1465225314224-587cd83d322b?w=900&q=80',
+    href: '#',
   },
   {
-    title: "Desbravadores",
-    desc: "Crianças e adolescentes vivendo aventuras, aprendendo habilidades e descobrindo a fé na prática.",
-    img: "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=900&q=80",
-    href: "#",
+    title: 'Desbravadores',
+    desc: 'Crianças e adolescentes vivendo aventuras, aprendendo habilidades e descobrindo a fé na prática.',
+    img: 'https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=900&q=80',
+    href: '#',
   },
 ];
 ---
@@ -41,36 +41,52 @@ const ministries = [
     </div>
 
     <div class="ministries">
-      {ministries.map((m, i) => (
-        <div class="reveal" style={`transition-delay: ${i * 100}ms`}>
-          <a href={m.href} class="ministry-card">
-            <div class="ministry-card__media framed">
-              {typeof m.img === 'string'
-                ? <img src={m.img} alt={m.title} />
-                : <Image src={m.img} alt={m.title} />}
-            </div>
-            <div class="ministry-card__body">
-              <h3 class="ministry-card__title">{m.title}</h3>
-              <p class="ministry-card__desc">{m.desc}</p>
-              <span class="ministry-card__cta">Conhecer <span class="arr">→</span></span>
-            </div>
-          </a>
-        </div>
-      ))}
+      {
+        ministries.map((m, i) => (
+          <div class="reveal" style={`transition-delay: ${i * 100}ms`}>
+            <a href={m.href} class="ministry-card">
+              <div class="ministry-card__media framed">
+                {typeof m.img === 'string' ? (
+                  <img src={m.img} alt={m.title} />
+                ) : (
+                  <Image src={m.img} alt={m.title} />
+                )}
+              </div>
+              <div class="ministry-card__body">
+                <h3 class="ministry-card__title">{m.title}</h3>
+                <p class="ministry-card__desc">{m.desc}</p>
+                <span class="ministry-card__cta">
+                  Conhecer <span class="arr">→</span>
+                </span>
+              </div>
+            </a>
+          </div>
+        ))
+      }
     </div>
   </div>
 </section>
 
 <style>
-  .section__head { max-width: 720px; margin-bottom: 56px; }
-  .section__head--center { text-align: center; margin-left: auto; margin-right: auto; }
+  .section__head {
+    max-width: 720px;
+    margin-bottom: 56px;
+  }
+  .section__head--center {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
   .section__title {
     font-size: clamp(32px, 4vw, 52px);
     margin-top: 14px;
     font-weight: 400;
     letter-spacing: -0.015em;
   }
-  .section__title em { font-style: italic; color: var(--gold); }
+  .section__title em {
+    font-style: italic;
+    color: var(--gold);
+  }
   .section__lede {
     margin-top: 18px;
     font-size: 17px;
@@ -93,17 +109,24 @@ const ministries = [
     background: var(--bg-card);
     border-radius: 0.75rem;
     overflow: hidden;
-    box-shadow: 0 32px 64px -24px rgba(0,30,64,0.06);
-    transition: transform var(--t-med), box-shadow var(--t-med);
+    box-shadow: 0 32px 64px -24px rgba(0, 30, 64, 0.06);
+    transition:
+      transform var(--t-med),
+      box-shadow var(--t-med);
     text-decoration: none;
     color: var(--ink);
   }
   .ministry-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 32px 80px -16px rgba(0,30,64,0.12);
+    box-shadow: 0 32px 80px -16px rgba(0, 30, 64, 0.12);
   }
-  .ministry-card__media { aspect-ratio: 4/3; border-radius: 0; }
-  .ministry-card__body { padding: 28px 28px 30px; }
+  .ministry-card__media {
+    aspect-ratio: 4/3;
+    border-radius: 0;
+  }
+  .ministry-card__body {
+    padding: 28px 28px 30px;
+  }
   .ministry-card__title {
     font-size: 26px;
     margin-bottom: 10px;
@@ -121,10 +144,17 @@ const ministries = [
     color: var(--accent);
     font-weight: 500;
   }
-  .ministry-card:hover .ministry-card__cta .arr { transform: translateX(3px); }
-  .ministry-card__cta .arr { transition: transform var(--t-fast); display: inline-block; }
+  .ministry-card:hover .ministry-card__cta .arr {
+    transform: translateX(3px);
+  }
+  .ministry-card__cta .arr {
+    transition: transform var(--t-fast);
+    display: inline-block;
+  }
 
   @media (max-width: 820px) {
-    .ministries { grid-template-columns: 1fr; }
+    .ministries {
+      grid-template-columns: 1fr;
+    }
   }
 </style>
