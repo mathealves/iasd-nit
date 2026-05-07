@@ -1,5 +1,6 @@
 ---
 import { Image } from 'astro:assets';
+import { Icon } from 'astro-icon/components';
 import logoSrc from '../assets/adventist_symbol_denim.png';
 const currentPath = Astro.url.pathname;
 const links = [
@@ -41,7 +42,7 @@ const links = [
 
     <!-- CTA + mobile toggle -->
     <div class="nav__right">
-      <a href="/quero-conhecer" class="btn btn--primary nav__cta">
+      <a href="#" class="btn btn--primary nav__cta">
         Quero conhecer <span class="arr">→</span>
       </a>
       <button
@@ -51,31 +52,10 @@ const links = [
         aria-expanded="false"
       >
         <span id="icon-menu">
-          <svg
-            width="22"
-            height="22"
-            viewBox="0 0 22 22"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.8"
-            stroke-linecap="round"
-          >
-            <line x1="3" y1="7" x2="19" y2="7"></line><line x1="3" y1="11" x2="19" y2="11"
-            ></line><line x1="3" y1="15" x2="19" y2="15"></line>
-          </svg>
+          <Icon name="lucide:menu" size={22} />
         </span>
         <span id="icon-close" class="hidden">
-          <svg
-            width="22"
-            height="22"
-            viewBox="0 0 22 22"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.8"
-            stroke-linecap="round"
-          >
-            <line x1="5" y1="5" x2="17" y2="17"></line><line x1="17" y1="5" x2="5" y2="17"></line>
-          </svg>
+          <Icon name="lucide:x" size={22} />
         </span>
       </button>
     </div>
@@ -98,13 +78,21 @@ const links = [
       ))
     }
 
-    <a href="/quero-conhecer" class="btn btn--primary nav__cta-mobile">
+    <a href="#" class="btn btn--primary nav__cta-mobile">
       Quero conhecer <span class="arr">→</span>
     </a>
   </div>
 </nav>
 
 <style>
+  @font-face {
+    font-family: 'AdventSans Logo';
+    src: url('/fonts/AdventSans-Logo.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
   .nav {
     position: sticky;
     top: 0;
@@ -138,13 +126,13 @@ const links = [
     flex-shrink: 0;
   }
   .nav__brand-text {
+    font-family: 'AdventSans Logo', var(--serif);
     display: flex;
     flex-direction: column;
     line-height: 1;
   }
   .nav__brand-text b {
-    font-family: var(--serif);
-    font-weight: 500;
+    font-weight: normal;
     font-size: 17px;
     letter-spacing: -0.01em;
     color: var(--ink);
