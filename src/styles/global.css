@@ -1,7 +1,7 @@
 @import 'tailwindcss';
 
 @theme {
-  --font-sans: 'Outfit', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-sans: 'Noto Sans', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-serif: 'Playfair Display', Georgia, serif;
 
   /* ── Legacy Tailwind color compat (historia/quero-conhecer pages) ── */
@@ -37,7 +37,7 @@
   --accent-soft: #ccd6e8;
   --gold: #775a19;
   --serif: 'Playfair Display', Georgia, serif;
-  --sans: 'Outfit', ui-sans-serif, system-ui, sans-serif;
+  --sans: 'Noto Sans', ui-sans-serif, system-ui, sans-serif;
   --max: 1280px;
   --gutter: clamp(20px, 4vw, 48px);
   --t-fast: 180ms cubic-bezier(0.2, 0.7, 0.3, 1);

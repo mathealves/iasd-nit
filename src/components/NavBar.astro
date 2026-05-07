@@ -85,6 +85,14 @@ const links = [
 </nav>
 
 <style>
+  @font-face {
+    font-family: 'AdventSans Logo';
+    src: url('/fonts/AdventSans-Logo.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
   .nav {
     position: sticky;
     top: 0;
@@ -118,13 +126,13 @@ const links = [
     flex-shrink: 0;
   }
   .nav__brand-text {
+    font-family: 'AdventSans Logo', var(--serif);
     display: flex;
     flex-direction: column;
     line-height: 1;
   }
   .nav__brand-text b {
-    font-family: var(--serif);
-    font-weight: 500;
+    font-weight: normal;
     font-size: 17px;
     letter-spacing: -0.01em;
     color: var(--ink);

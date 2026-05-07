@@ -133,7 +133,10 @@ import heroCulto from '../../assets/hero-culto.png';
 
   @media (max-width: 900px) {
     .hero {
-      padding: 48px 0 80px;
+      display: flex;
+      align-items: start;
+      justify-content: flex-start;
+      padding: 28px 0 80px;
     }
     .hero__bg {
       top: 45%;
@@ -154,8 +157,22 @@ import heroCulto from '../../assets/hero-culto.png';
     .hero__text {
       max-width: 100%;
     }
-     .hero__verse {
+    .hero__title {
+      margin-top: 0;
+    }
+    .hero__actions {
+      margin-top: 28px;
+    }
+  }
+
+  @media (max-width: 392px) {
+    .hero__actions {
+      margin-top: 28px;
+      gap: 1px;
+    }
+    .hero__verse {
       margin: 0;
+      padding-top: 0;
     }
   }
 </style>
