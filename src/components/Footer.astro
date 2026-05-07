@@ -11,11 +11,12 @@ const year = new Date().getFullYear();
       <div class="footer__brand">
         <div class="footer__brand-logo">
           <Image src={logoSrc} alt="Logo IASD" class="nav__brand-mark" width={32} height={32} />
-          <span class="footer__brand-name">IASD Niterói</span>
+          <span class="footer__brand-text">
+            <b>IASD Niterói</b>
+            <span>Canoas · RS</span>
+          </span>
         </div>
-        <p>
-          Uma comunidade adventista no bairro Niterói, em Canoas — RS. Aqui há lugar para você.
-        </p>
+        <p>Uma comunidade adventista no bairro Niterói, em Canoas — RS. Aqui há lugar para você.</p>
       </div>
 
       <!-- Visite -->
@@ -50,8 +51,10 @@ const year = new Date().getFullYear();
         <h4>Contato</h4>
         <ul>
           <li>
-            <a href="https://www.instagram.com/adventistasniteroi/" target="_blank" rel="noopener noreferrer"
-              >Instagram</a
+            <a
+              href="https://www.instagram.com/adventistasniteroi/"
+              target="_blank"
+              rel="noopener noreferrer">Instagram</a
             >
           </li>
           <li>
@@ -76,6 +79,13 @@ const year = new Date().getFullYear();
 </footer>
 
 <style>
+  @font-face {
+    font-family: 'AdventSans Logo';
+    src: url('/fonts/AdventSans-Logo.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
   .footer {
     padding: 80px 0 32px;
     border-top: 1px solid var(--line);
@@ -88,15 +98,24 @@ const year = new Date().getFullYear();
     margin-bottom: 64px;
   }
   .footer__brand-logo {
+    font-family: 'AdventSans Logo', var(--serif);
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     margin-bottom: 14px;
   }
-  .footer__brand-name {
-    font-family: var(--serif);
-    font-size: 18px;
-    color: var(--ink);
+  .footer__brand-text {
+    font-family: 'AdventSans Logo', var(--serif);
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+  }
+  .footer__brand-text span {
+    font-size: 10.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin-top: 2px;
   }
   .footer__brand p {
     color: var(--ink-soft);
