@@ -4,6 +4,7 @@ import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 
 import sitemap from '@astrojs/sitemap';
+import icon from 'astro-icon';
 
 // https://astro.build/config
 export default defineConfig({
@@ -12,8 +13,8 @@ export default defineConfig({
     domains: ['images.unsplash.com', 'lh3.googleusercontent.com'],
   },
   vite: {
-    plugins: [tailwindcss()]
+    plugins: [tailwindcss()],
   },
 
-  integrations: [sitemap()]
+  integrations: [sitemap(), icon()],
 });

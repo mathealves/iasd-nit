@@ -1,87 +1,110 @@
 ---
+import { Image } from 'astro:assets';
+import { Icon } from 'astro-icon/components';
+import programacao from '../../assets/programacao.jpeg';
+
 const days = [
   {
-    day: "Quarta-feira",
-    icon: "sparkles",
+    day: 'Quarta-feira',
+    icon: 'lucide:sparkles',
     highlight: false,
-    services: [
-      { title: "Culto", desc: "Adoração e Mensagem", time: "20:00" },
-    ],
+    services: [{ title: 'Culto', desc: 'Adoração e Mensagem', time: '20:00' }],
   },
   {
-    day: "Sábado",
-    icon: "badge",
+    day: 'Sábado',
+    icon: 'lucide:book-open',
     highlight: true,
     services: [
-      { title: "Escola Sabatina", desc: "Estudo Bíblico em Grupos", time: "09:00" },
-      { title: "Culto", desc: "Adoração e Mensagem", time: "10:30" },
+      { title: 'Escola Sabatina', desc: 'Estudo Bíblico em Grupos', time: '09:00' },
+      { title: 'Culto', desc: 'Adoração e Mensagem', time: '10:30' },
     ],
   },
   {
-    day: "Domingo",
-    icon: "moon",
+    day: 'Domingo',
+    icon: 'lucide:moon',
     highlight: false,
-    services: [
-      { title: "Culto", desc: "Adoração e Mensagem", time: "19:00" },
-    ],
+    services: [{ title: 'Culto', desc: 'Adoração e Mensagem', time: '19:00' }],
   },
 ];
 ---
 
 <section class="section" id="horarios">
   <div class="container flex flex-col">
-    <div class="section__head">
-      <div class="reveal"><span class="kicker">Programação semanal</span></div>
+    <div class="reveal section__head" style="transition-delay: 120ms">
+      <h1 class="schedule__title">
+        Nossos <em>horários</em>
+      </h1>
+      <div class="reveal" style="transition-delay: 240ms">
+        <p class="schedule__lede">
+          Participe dos nossos cultos e atividades semanais. Uma oportunidade de crescer na fé,
+          encontrar amigos e se conectar com Deus. Todos são bem-vindos!
+        </p>
+      </div>
     </div>
 
     <div class="schedule">
-      {days.map((d, i) => (
-        <div
-          class={`reveal schedule__card${d.highlight ? " schedule__card--highlight" : ""}`}
-          style={`transition-delay: ${i * 120}ms`}
-        >
-          <div class="schedule__header">
-            <span class="schedule__icon" aria-hidden="true">
-              {d.icon === "sparkles" && (
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M12 3 L13.5 8.5 L19 10 L13.5 11.5 L12 17 L10.5 11.5 L5 10 L10.5 8.5 Z"/>
-                  <path d="M5 3 L5.7 5.3 L8 6 L5.7 6.7 L5 9 L4.3 6.7 L2 6 L4.3 5.3 Z" opacity="0.6"/>
-                </svg>
-              )}
-              {d.icon === "badge" && (
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M12 2l2.4 3.2L18 4l.8 3.8L22 10l-2.4 3.2.8 3.8-3.8.8L14.4 21 12 18.4 9.6 21l-3.2-3.2-3.8-.8.8-3.8L2 10l3.2-2.2L6 4l3.6 1.2Z"/>
-                  <polyline points="9 12 11 14 15 10"/>
-                </svg>
-              )}
-              {d.icon === "moon" && (
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/>
-                </svg>
-              )}
-            </span>
-            <h2 class="schedule__day">{d.day}</h2>
-          </div>
+      {
+        days.map((d, i) => (
+          <div
+            class={`reveal schedule__card${d.highlight ? ' schedule__card--highlight' : ''}`}
+            style={`transition-delay: ${i * 120}ms`}
+          >
+            <div class="schedule__header">
+              <span class="schedule__icon" aria-hidden="true">
+                <Icon name={d.icon} size={22} />
+              </span>
+              <h2 class="schedule__day">{d.day}</h2>
+            </div>
 
-          <div class="schedule__services">
-            {d.services.map((s, si) => (
-              <div class={`schedule__service${si < d.services.length - 1 ? " schedule__service--bordered" : ""}`}>
-                <div class="schedule__service-info">
-                  <span class="schedule__service-title">{s.title}</span>
-                  <span class="schedule__service-desc">{s.desc}</span>
+            <div class="schedule__services">
+              {d.services.map((s, si) => (
+                <div
+                  class={`schedule__service${si < d.services.length - 1 ? ' schedule__service--bordered' : ''}`}
+                >
+                  <div class="schedule__service-info">
+                    <span class="schedule__service-title">{s.title}</span>
+                    <span class="schedule__service-desc">{s.desc}</span>
+                  </div>
+                  <span class="schedule__time">{s.time}</span>
                 </div>
-                <span class="schedule__time">{s.time}</span>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
-      ))}
+        ))
+      }
     </div>
+    <div class="reveal"><span class="kicker">Programação <em>02/05 - 09/05</em> </span></div>
+
+    <Image
+      src={programacao}
+      alt="Programação de 02/05 a 09/05"
+      class="reveal"
+      style={{ marginTop: '32px', borderRadius: '1rem' }}
+    />
   </div>
 </section>
 
 <style>
-  .section__head { max-width: 720px; margin-bottom: 56px; }
+  .section__head {
+    max-width: 720px;
+    margin-bottom: 56px;
+  }
+
+  .schedule__title {
+    font-size: clamp(44px, 2vw, 76px);
+    letter-spacing: -0.015em;
+    font-weight: 500;
+    margin-top: 22px;
+    line-height: 1.05;
+  }
+
+  .schedule__lede {
+    margin-top: 24px;
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    max-width: 46ch;
+  }
 
   .schedule {
     display: grid;
@@ -94,22 +117,24 @@ const days = [
     padding: 36px 32px 40px;
     border-radius: 1rem;
     background: var(--bg-card);
-    box-shadow: 0 8px 32px -8px rgba(0,30,64,0.08);
-    transition: box-shadow var(--t-med), transform var(--t-med);
+    box-shadow: 0 8px 32px -8px rgba(0, 30, 64, 0.08);
+    transition:
+      box-shadow var(--t-med),
+      transform var(--t-med);
   }
   .schedule__card:hover {
-    box-shadow: 0 16px 48px -8px rgba(0,30,64,0.14);
+    box-shadow: 0 16px 48px -8px rgba(0, 30, 64, 0.14);
     transform: translateY(-3px);
   }
 
   .schedule__card--highlight {
     background: #0f2a5e;
-    box-shadow: 0 24px 64px -12px rgba(15,42,94,0.40);
+    box-shadow: 0 24px 64px -12px rgba(15, 42, 94, 0.4);
     padding: 44px 36px 48px;
     color: #fff;
   }
   .schedule__card--highlight:hover {
-    box-shadow: 0 32px 72px -8px rgba(15,42,94,0.50);
+    box-shadow: 0 32px 72px -8px rgba(15, 42, 94, 0.5);
   }
 
   /* Header row: icon + day name */
@@ -151,10 +176,10 @@ const days = [
     padding: 16px 0;
   }
   .schedule__service--bordered {
-    border-bottom: 1px solid rgba(0,30,64,0.08);
+    border-bottom: 1px solid rgba(0, 30, 64, 0.08);
   }
   .schedule__card--highlight .schedule__service--bordered {
-    border-bottom-color: rgba(255,255,255,0.12);
+    border-bottom-color: rgba(255, 255, 255, 0.12);
   }
 
   .schedule__service-info {
@@ -175,7 +200,7 @@ const days = [
     color: var(--ink-soft);
   }
   .schedule__card--highlight .schedule__service-desc {
-    color: rgba(255,255,255,0.6);
+    color: rgba(255, 255, 255, 0.6);
   }
 
   .schedule__time {
@@ -190,12 +215,15 @@ const days = [
     color: var(--gold);
   }
 
+  .schedule__banner {
+    margin-top: 32px;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 8px 32px -8px rgba(0, 30, 64, 0.08);
+  }
   @media (max-width: 820px) {
     .schedule {
       grid-template-columns: 1fr;
-    }
-    .schedule__card--highlight {
-      order: -1;
     }
   }
 </style>

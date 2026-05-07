@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+import logoSrc from '../assets/adventist_symbol_denim.png';
 const year = new Date().getFullYear();
 ---
 
@@ -8,19 +10,11 @@ const year = new Date().getFullYear();
       <!-- Brand -->
       <div class="footer__brand">
         <div class="footer__brand-logo">
-          <svg width="26" height="26" viewBox="0 0 64 64" fill="none" aria-hidden="true">
-            <path d="M8 44 C 16 40, 24 40, 32 44 C 40 40, 48 40, 56 44 L 56 50 C 48 46, 40 46, 32 50 C 24 46, 16 46, 8 50 Z" fill="var(--accent)" opacity="0.95"/>
-            <line x1="32" y1="44" x2="32" y2="50" stroke="var(--accent)" stroke-width="0.8" opacity="0.5"/>
-            <path d="M32 8 C 28 14, 26 18, 26 24 C 26 30, 29 34, 32 36 C 35 34, 38 30, 38 24 C 38 18, 36 14, 32 8 Z" fill="var(--accent)"/>
-            <path d="M22 18 C 19 22, 18 26, 19 30 C 20 33, 23 35, 26 35 C 25 32, 24 28, 24 24 C 24 22, 23 20, 22 18 Z" fill="var(--accent)" opacity="0.85"/>
-            <path d="M42 18 C 45 22, 46 26, 45 30 C 44 33, 41 35, 38 35 C 39 32, 40 28, 40 24 C 40 22, 41 20, 42 18 Z" fill="var(--accent)" opacity="0.85"/>
-            <path d="M31 20 L 33 20 L 33 24 L 35 24 L 35 26 L 33 26 L 33 32 L 31 32 L 31 26 L 29 26 L 29 24 L 31 24 Z" fill="var(--bg)" opacity="0.9"/>
-          </svg>
+          <Image src={logoSrc} alt="Logo IASD" class="nav__brand-mark" width={32} height={32} />
           <span class="footer__brand-name">IASD Niterói</span>
         </div>
         <p>
-          Uma comunidade adventista no bairro Niterói, em Canoas — RS.
-          Aqui há lugar para você, exatamente como você é.
+          Uma comunidade adventista no bairro Niterói, em Canoas — RS. Aqui há lugar para você.
         </p>
       </div>
 
@@ -28,9 +22,10 @@ const year = new Date().getFullYear();
       <div class="footer__col">
         <h4>Visite</h4>
         <ul>
+          <li>Quarta · 20h Culto Divino</li>
           <li>Sábado · 9h Escola Sabatina</li>
           <li>Sábado · 10h30 Culto Divino</li>
-          <li>Quarta · 20h Reunião de Oração</li>
+          <li>Quarta · 20h Culto Divino</li>
         </ul>
       </div>
 
@@ -38,9 +33,15 @@ const year = new Date().getFullYear();
       <div class="footer__col">
         <h4>Endereço</h4>
         <ul>
-          <li>Bairro Niterói</li>
-          <li>Canoas — RS</li>
-          <li><a href="https://maps.google.com" target="_blank" rel="noopener noreferrer">Ver no mapa →</a></li>
+          <li>Rua Garibaldi, 216</li>
+          <li>Niterói · Canoas — RS</li>
+          <li>
+            <a
+              href="https://maps.google.com/maps?q=Rua+Garibaldi+216+Niterói+Canoas+RS"
+              target="_blank"
+              rel="noopener noreferrer">Ver no mapa →</a
+            >
+          </li>
         </ul>
       </div>
 
@@ -48,28 +49,34 @@ const year = new Date().getFullYear();
       <div class="footer__col">
         <h4>Contato</h4>
         <ul>
-          <li><a href="https://instagram.com/iasdniteroi" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-          <li><a href="https://youtube.com/@iasdniteroi" target="_blank" rel="noopener noreferrer">YouTube</a></li>
-          <li><a href="https://wa.me/5551999999999" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
-          <li><a href="/quero-conhecer">Quero conhecer</a></li>
+          <li>
+            <a href="https://www.instagram.com/adventistasniteroi/" target="_blank" rel="noopener noreferrer"
+              >Instagram</a
+            >
+          </li>
+          <li>
+            <a href="https://www.youtube.com/@advnit" target="_blank" rel="noopener noreferrer"
+              >YouTube</a
+            >
+          </li>
+          <li>
+            <a href="https://wa.me/5551999999999" target="_blank" rel="noopener noreferrer"
+              >WhatsApp</a
+            >
+          </li>
+          <li><a href="#">Quero conhecer</a></li>
         </ul>
       </div>
     </div>
 
     <div class="footer__bottom">
       <span>© {year} Igreja Adventista do Sétimo Dia · Niterói, Canoas — RS</span>
-      <div class="footer__lang">
-        <button class="active">PT</button>
-        <button>EN</button>
-        <button>ES</button>
-      </div>
     </div>
   </div>
 </footer>
 
 <style>
   .footer {
-    margin-top: 120px;
     padding: 80px 0 32px;
     border-top: 1px solid var(--line);
     background: var(--bg-soft);
@@ -115,9 +122,17 @@ const year = new Date().getFullYear();
     flex-direction: column;
     gap: 10px;
   }
-  .footer__col li { color: var(--ink-soft); font-size: 14px; }
-  .footer__col a { color: var(--ink-soft); transition: color var(--t-fast); }
-  .footer__col a:hover { color: var(--ink); }
+  .footer__col li {
+    color: var(--ink-soft);
+    font-size: 14px;
+  }
+  .footer__col a {
+    color: var(--ink-soft);
+    transition: color var(--t-fast);
+  }
+  .footer__col a:hover {
+    color: var(--ink);
+  }
 
   .footer__bottom {
     display: flex;
@@ -128,7 +143,10 @@ const year = new Date().getFullYear();
     font-size: 12px;
     color: var(--ink-mute);
   }
-  .footer__lang { display: flex; gap: 14px; }
+  .footer__lang {
+    display: flex;
+    gap: 14px;
+  }
   .footer__lang button {
     background: none;
     border: 0;
@@ -141,13 +159,24 @@ const year = new Date().getFullYear();
     transition: color var(--t-fast);
   }
   .footer__lang button:hover,
-  .footer__lang button.active { color: var(--ink); }
+  .footer__lang button.active {
+    color: var(--ink);
+  }
 
   @media (max-width: 820px) {
-    .footer__grid { grid-template-columns: 1fr 1fr; gap: 40px; }
-    .footer__bottom { flex-direction: column; gap: 14px; align-items: flex-start; }
+    .footer__grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+    .footer__bottom {
+      flex-direction: column;
+      gap: 14px;
+      align-items: flex-start;
+    }
   }
   @media (max-width: 480px) {
-    .footer__grid { grid-template-columns: 1fr; }
+    .footer__grid {
+      grid-template-columns: 1fr;
+    }
   }
 </style>
