@@ -85,6 +85,21 @@ const days = [
 </section>
 
 <style>
+  /* Top fade — section emerges smoothly from the hero image */
+  #horarios {
+    position: relative;
+  }
+  #horarios::before {
+    content: '';
+    position: absolute;
+    top: -140px;
+    left: 0;
+    right: 0;
+    height: 140px;
+    /* background: linear-gradient(to bottom, transparent, var(--bg)); */
+    pointer-events: none;
+  }
+
   .section__head {
     max-width: 720px;
     margin-bottom: 56px;
