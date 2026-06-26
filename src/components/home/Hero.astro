@@ -7,8 +7,8 @@ import heroCulto from '../../assets/hero-culto.png';
   <!-- Full-width background image -->
   <div class="hero__bg">
     <Image src={heroCulto} alt="Interior da igreja IASD Niterói" />
-    <div class="hero__fade"></div>
   </div>
+  <div class="hero__fade"></div>
 
   <div class="container hero__inner">
     <!-- Text column -->
@@ -48,15 +48,14 @@ import heroCulto from '../../assets/hero-culto.png';
   .hero {
     position: relative;
     padding: 60px 0 120px;
-    overflow: hidden;
     height: 100vh;
   }
 
-  /* Full-bleed background image */
+  /* Full-bleed background image — fixed so it stays in place while scrolling */
   .hero__bg {
-    position: absolute;
+    position: fixed;
     inset: 0;
-    z-index: 0;
+    z-index: -1;
   }
   .hero__bg img {
     width: 100%;
@@ -70,6 +69,7 @@ import heroCulto from '../../assets/hero-culto.png';
   .hero__fade {
     position: absolute;
     inset: 0;
+    z-index: 1;
     background: linear-gradient(
       to right,
       var(--bg) 38%,
@@ -80,7 +80,7 @@ import heroCulto from '../../assets/hero-culto.png';
 
   .hero__inner {
     position: relative;
-    z-index: 1;
+    z-index: 2;
   }
 
   .hero__text {
@@ -176,3 +176,4 @@ import heroCulto from '../../assets/hero-culto.png';
     }
   }
 </style>
+
